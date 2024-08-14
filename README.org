@@ -1,7 +1,7 @@
 #+html: <a href="https://unsplash.com/pt-br/fotografias/canoa-preta-no-solo-coberto-de-neve-perto-de-arvores-durante-o-dia-gL_Vcsv1aeI"><img src="media/frozen-pond.jpg" width="8%" align="right"></a>
 *** Frozen Pond
 ****** My current NixOS flake/dotfiles.
-#+html: <a href="media/screenshot.png" width="40%"></a>
+#+html: <a href="https://codeberg.org/amadaluzia/frozen-pond/src/branch/main/media/screenshot.png" width="40%"></a>
 -----
 
 **** Why 3 seperate dotfiles now?
