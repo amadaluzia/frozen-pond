@@ -1,8 +1,9 @@
+#+options: num:0
+
 *** Frozen Pond
 ****** My current NixOS flake/dotfiles.
 
-
-#+html: <img src="media/screenshot.png" width="40%">
+#+html: <img src="media/screenshot.png">
 
 -----
 
