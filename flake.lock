@@ -107,11 +107,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1723602731,
-        "narHash": "sha256-u9DfTJRukOcOH5LGiSVP/gMxSdBRYdtmoEQrUklQq9E=",
+        "lastModified": 1723642936,
+        "narHash": "sha256-SSuI59GkMAyQ41TEzTJLmFyi2HaTkQA3ugvw6dbiYZc=",
         "owner": "wamserma",
         "repo": "flake-programs-sqlite",
-        "rev": "6fc1abd61187af4588ba97bec58149e8be7783dc",
+        "rev": "d30a3ab0ac83dc5643592b8f13916f60eee46c15",
         "type": "github"
       },
       "original": {
@@ -445,11 +445,11 @@
         "parts": "parts"
       },
       "locked": {
-        "lastModified": 1723605610,
-        "narHash": "sha256-qUMTHE1K0ORls92RLpkPU6H/fz5hz8IwCa4be3Ir/+Q=",
+        "lastModified": 1723675902,
+        "narHash": "sha256-j3fSCZT1Bw3ISRicJ4sYUAkYY3Z17wNEgCTuBhBbbpw=",
         "ref": "refs/heads/main",
-        "rev": "5336391396b79e5b55497bcecb0f9e8a60b1eddf",
-        "revCount": 38,
+        "rev": "2ee866b655d6edd585e75fba2e69ac707c1dcc2d",
+        "revCount": 39,
         "type": "git",
         "url": "https://codeberg.org/amadaluzia/pankomacs.git"
       },

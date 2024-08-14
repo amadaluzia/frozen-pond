@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ inputs, config, pkgs, lib, ... }:
 let
   cfg = config.frozen-pond.grub;
   inherit (lib)
@@ -27,6 +27,7 @@ in
         device = "nodev";
         enableCryptodisk = true;
         efiInstallAsRemovable = true;
+        theme = inputs.dgt.packages.${pkgs.stdenv.system}.nixos-grub-theme;
       };
     };
   };

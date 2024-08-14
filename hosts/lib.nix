@@ -19,20 +19,23 @@
             nixpkgs = {inherit overlays;};
             networking.hostName = hostname;
             users.users.${username} = {
-              name = username;
+	      name = username;
               home = "/home/${username}";
               isNormalUser = true;
               extraGroups = [
                 "wheel"
                 "video"
                 "audio"
-		"input"
+	      	"input"
                 "networkmanager"
-		"libvirtd"
+	      	"libvirtd"
               ];
               shell = pkgs.myxonsh;
-            };
-	    nix.settings.extra-experimental-features = [ "nix-command" "flakes" ];
+	    };
+	    nix = {
+	      settings.extra-experimental-features = [ "nix-command" "flakes" ];
+	      package =	pkgs.nixVersions.latest;
+	    };
 	    environment.systemPackages = [ inputs.whyfetch.packages.${pkgs.system}.whyfetch ];
           };
         }
