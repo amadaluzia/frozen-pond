@@ -1,5 +1,3 @@
-#+options: num:0
-
 *** Frozen Pond
 ****** My current NixOS flake/dotfiles.
 
