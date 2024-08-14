@@ -1,6 +1,9 @@
 *** Frozen Pond
 ****** My current NixOS flake/dotfiles.
-#+html: <img src="https://codeberg.org/amadaluzia/frozen-pond/src/branch/main/media/screenshot.png" width="40%">
+
+
+#+html: <img src="media/screenshot.png" width="40%">
+
 -----
 
 **** Why 3 seperate dotfiles now?
