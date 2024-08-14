@@ -1,0 +1,9 @@
+from xonsh.xontribs import xontribs_load
+
+execx($(starship init xonsh))
+
+xontribs_load([
+  "sh",
+  "direnv",
+  "fish_completer",
+])

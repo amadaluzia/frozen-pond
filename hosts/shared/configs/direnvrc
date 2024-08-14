@@ -1,0 +1,8 @@
+# -*- mode: bash -*-
+
+echo "welcome back vro"
+
+if [ $RANDOM -eq 1 ]
+then
+    cd ..
+fi
