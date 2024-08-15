@@ -2,7 +2,7 @@
   imports = [
     ./hardware.nix
   ];
-  
+
   frozen-pond = {
     sway.enable = true;
     emacs.enable = true;
@@ -20,6 +20,7 @@
     starship.enable = true;
     i3.enable = true;
     neovim.enable = true;
+    niri.enable = true;
   };
 
   networking = {

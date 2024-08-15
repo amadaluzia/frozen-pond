@@ -7,7 +7,7 @@
       };
       xonsh = {
         enable = true;
-	      package = pkgs.myxonsh;
+        package = pkgs.myxonsh;
       };
     };
 

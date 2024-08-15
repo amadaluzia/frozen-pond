@@ -14,14 +14,14 @@ in
     extraPackages = mkOption {
       type = listOf package;
       description = "Extra fonts to install.";
-      default = [ pkgs.nerdfonts-symbols ]; 
+      default = [ pkgs.nerdfonts-symbols ];
     };
   };
 
   config = mkIf cfg.enable {
     fonts = {
       packages = (with pkgs; [
-        fira
+        recursive
         merriweather
         twemoji-color-font
         mplus-outline-fonts.githubRelease
@@ -29,8 +29,8 @@ in
       fontconfig = {
         enable = true;
         defaultFonts = {
-          sansSerif = [ "Fira Sans" ];
-          monospace = [ "Fira Mono" ];
+          sansSerif = [ "Recursive Sans Casual Static" ];
+          monospace = [ "Recursive Mono Casual Static" ];
           serif = [ "Merriweather" ];
           emoji = [ "Twitter Color Emoji" ];
         };

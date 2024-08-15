@@ -20,5 +20,6 @@ _: {
     ./xonsh.nix
     ./i3.nix
     ./neovim.nix
+    ./niri.nix
   ];
 }

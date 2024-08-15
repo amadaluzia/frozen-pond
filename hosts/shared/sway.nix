@@ -14,9 +14,9 @@ in
       wrapperFeatures.gtk = true;
       extraPackages = [
         pkgs.wezterm
-	pkgs.swaybg
-	pkgs.wofi
-	pkgs.pamixer
+        pkgs.swaybg
+        pkgs.wofi
+        pkgs.pamixer
       ];
     };
 
@@ -42,20 +42,22 @@ in
     ];
 
     systemd.user = {
-      tmpfiles.rules = let
-        wallpaper = pkgs.fetchurl {
-          url = "https://i.imgur.com/7WGgZt5.png";
-          sha256 = "AQSVUxYxtR47G/6tQBdDUB1SPYKuQzqQlJguHgyR8Mk=";
-        };
+      tmpfiles.rules =
+        let
+          wallpaper = pkgs.fetchurl {
+            url = "https://i.imgur.com/7WGgZt5.png";
+            sha256 = "AQSVUxYxtR47G/6tQBdDUB1SPYKuQzqQlJguHgyR8Mk=";
+          };
 
-        homeDir = "/home/${username}";
-        configDir = ./. + "/configs";
-      in [
-        "L+ ${homeDir}/.config/sway 0644 - - - ${configDir}/sway"
-        "L+ ${homeDir}/.config/wofi 0644 - - - ${configDir}/wofi"
-        "L+ ${homeDir}/.config/waybar 0644 - - - ${configDir}/waybar"
-        "L+ /tmp/wallpaper - - - - ${wallpaper}"
-      ];
+          homeDir = "/home/${username}";
+          configDir = ./. + "/configs";
+        in
+        [
+          "L+ ${homeDir}/.config/sway 0644 - - - ${configDir}/sway"
+          "L+ ${homeDir}/.config/wofi 0644 - - - ${configDir}/wofi"
+          "L+ ${homeDir}/.config/waybar 0644 - - - ${configDir}/waybar"
+          "L+ /tmp/wallpaper - - - - ${wallpaper}"
+        ];
       targets.sway-session = {
         description = "sway compositor session";
         documentation = [ "man:systemd.special(7)" ];

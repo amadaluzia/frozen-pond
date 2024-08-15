@@ -1,10 +1,12 @@
-{ lib, config, inputs, pkgs, ... }: let
+{ lib, config, inputs, pkgs, ... }:
+let
   cfg = config.frozen-pond.neovim;
   inherit (lib)
     mkEnableOption
     mkIf
     ;
-in {
+in
+{
   options.frozen-pond.neovim = {
     enable = mkEnableOption "neovim";
   };

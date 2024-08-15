@@ -1,11 +1,10 @@
-{
-  config,
-  lib,
-  pkgs,
-  modulesPath,
-  ...
+{ config
+, lib
+, pkgs
+, modulesPath
+, ...
 }: {
-  imports = [(modulesPath + "/installer/scan/not-detected.nix")];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
   boot.initrd.availableKernelModules = [
     "xhci_pci"
@@ -14,9 +13,9 @@
     "usb_storage"
     "sd_mod"
   ];
-  boot.initrd.kernelModules = ["dm-snapshot"];
-  boot.kernelModules = ["kvm-amd"];
-  boot.extraModulePackages = [];
+  boot.initrd.kernelModules = [ "dm-snapshot" ];
+  boot.kernelModules = [ "kvm-amd" ];
+  boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/daa9e84e-1d0f-4818-b235-b14e0987dfbc";
@@ -32,7 +31,7 @@
     ];
   };
 
-  swapDevices = [{device = "/dev/disk/by-uuid/556b2edd-0466-4bc8-ba33-f55b74ba2996";}];
+  swapDevices = [{ device = "/dev/disk/by-uuid/556b2edd-0466-4bc8-ba33-f55b74ba2996"; }];
 
   boot.initrd.luks.devices = {
     crypted = {

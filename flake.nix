@@ -19,6 +19,7 @@
       url = "github:AdisonCavani/distro-grub-themes";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    niri.url = "github:sodiboo/niri-flake";
   };
 
   outputs =
@@ -30,25 +31,27 @@
     inputs.parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
 
-      flake = let
-        hosts = mkHosts [
-          {
-            hostname = "freguson";
-            username = "amadal";
-            system = "x86_64-linux";
-            extraModules = [
-              inputs.cosmic.nixosModules.default
-	      {
-                nix.settings = {
-                  substituters = [ "https://cosmic.cachix.org/" ];
-                  trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
-                };
-              }
-            ];
-          }
-        ];
-      in
-      hosts;
+      flake =
+        let
+          hosts = mkHosts [
+            {
+              hostname = "freguson";
+              username = "amadal";
+              system = "x86_64-linux";
+              extraModules = [
+                inputs.cosmic.nixosModules.default
+                inputs.niri.nixosModules.niri
+                {
+                  nix.settings = {
+                    substituters = [ "https://cosmic.cachix.org/" ];
+                    trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+                  };
+                }
+              ];
+            }
+          ];
+        in
+        hosts;
 
       perSystem =
         { pkgs, system, ... }:
@@ -58,8 +61,8 @@
             config.allowUnfree = true;
           };
           devShells.default = pkgs.mkShell { packages = builtins.attrValues { inherit (pkgs) nil statix; }; };
-
-          formatter = pkgs.nixfmt-rfc-style;
+          packages = import ./pkgs pkgs;
+          formatter = pkgs.nixpkgs-fmt;
           # as soon as i set up treefmt i am removing this, cant be arsed rn
         };
     };
