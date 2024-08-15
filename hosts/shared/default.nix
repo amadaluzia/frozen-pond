@@ -19,5 +19,6 @@ _: {
     ./starship.nix
     ./xonsh.nix
     ./i3.nix
+    ./neovim.nix
   ];
 }

@@ -3,10 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
-    utils.url = "github:numtide/flake-utils";
     parts.url = "github:hercules-ci/flake-parts";
-    dgt.url = "github:AdisonCavani/distro-grub-themes";
-    hardware.url = "github:NixOS/nixos-hardware";
     pankomacs.url = "git+https://codeberg.org/amadaluzia/pankomacs.git";
     whyfetch.url = "git+https://codeberg.org/amadaluzia/whyfetch.git";
     nixstart.url = "git+https://codeberg.org/amadaluzia/nixstart.nvim.git";
@@ -16,6 +13,10 @@
     };
     cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    dgt = {
+      url = "github:AdisonCavani/distro-grub-themes";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

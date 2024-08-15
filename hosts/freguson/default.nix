@@ -19,6 +19,7 @@
     virtualisation.enable = true;
     starship.enable = true;
     i3.enable = true;
+    neovim.enable = true;
   };
 
   networking = {
@@ -35,9 +36,8 @@
 
   i18n.defaultLocale = "en_US.UTF-8";
 
-  environment.systemPackages = with pkgs; [
-    neovim
-    wget
+  environment.systemPackages = [
+    pkgs.wget
   ];
 
   programs.gnupg.agent = {

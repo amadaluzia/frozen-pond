@@ -17,3 +17,8 @@ It's already enough for 2 module systems (flake-parts and nixos), dont need anot
 
 **** Why switch back to a MacBook Pro?
 No choice really. Not going to get to into it.
+
+-----
+
+*** CREDS!!!!!!!!
+shoutouts to [[https://codeberg.org/midirhee12][midirhee12]] for the xontribs
