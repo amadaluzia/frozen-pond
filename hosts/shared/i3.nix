@@ -13,8 +13,9 @@ in
       windowManager.i3 = {
         enable = true;
         extraPackages = [
-          (pkgs.polybar.override { i3Support = true; })
+          (pkgs.polybar.override { i3Support = true; pulseSupport = true; })
           pkgs.rofi
+          pkgs.feh
         ];
       };
       displayManager.sx.enable = true;
