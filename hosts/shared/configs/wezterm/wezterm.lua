@@ -26,4 +26,9 @@ M.window_padding = {
 -- bar (this is why i did that jank)
 M.enable_tab_bar = false
 
+wezterm.on("format-window-title", function()
+  local title = "WezTerm"
+  return title
+end)
+
 return M
