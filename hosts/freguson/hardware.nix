@@ -1,9 +1,11 @@
-{ config
-, lib
-, pkgs
-, modulesPath
-, ...
-}: {
+{
+  config,
+  lib,
+  pkgs,
+  modulesPath,
+  ...
+}:
+{
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
   boot.initrd.availableKernelModules = [
@@ -31,7 +33,7 @@
     ];
   };
 
-  swapDevices = [{ device = "/dev/disk/by-uuid/556b2edd-0466-4bc8-ba33-f55b74ba2996"; }];
+  swapDevices = [ { device = "/dev/disk/by-uuid/556b2edd-0466-4bc8-ba33-f55b74ba2996"; } ];
 
   boot.initrd.luks.devices = {
     crypted = {

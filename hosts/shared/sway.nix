@@ -1,8 +1,14 @@
-{ config, pkgs, lib, username, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  username,
+  ...
+}:
 let
   cfg = config.frozen-pond.sway;
   inherit (lib) mkEnableOption mkIf;
-  rose-pine = pkgs.rose-pine-gtk;
+  currentThemePackage = pkgs.rose-pine;
 in
 {
   options.frozen-pond.sway = {
@@ -18,17 +24,19 @@ in
         pkgs.swaybg
         pkgs.wofi
         pkgs.pamixer
+
       ];
     };
 
     xdg.portal = {
       enable = true;
       wlr.enable = true;
-      extraPortals = [
-        pkgs.xdg-desktop-portal-gtk
-      ];
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
       config = {
-        common.default = [ "wlr" "gtk" ];
+        common.default = [
+          "wlr"
+          "gtk"
+        ];
       };
     };
 
@@ -36,7 +44,7 @@ in
     programs.dconf.enable = true;
 
     environment.systemPackages = [
-      rose-pine
+      currentThemePackage
       pkgs.rose-pine-cursor
       pkgs.rose-pine-icon-theme
       pkgs.glib
@@ -52,14 +60,14 @@ in
 
           homeDir = "/home/${username}";
           configDir = ./. + "/configs";
-          rosePineTheme = "${rose-pine}/share/themes/RosePine-Main-BL";
+          currentTheme = "${currentThemePackage}/share/themes/RosePine-Main-BL";
         in
         [
           "L+ ${homeDir}/.config/sway 0644 - - - ${configDir}/sway"
           "L+ ${homeDir}/.config/wofi 0644 - - - ${configDir}/wofi"
           "L+ ${homeDir}/.config/waybar 0644 - - - ${configDir}/waybar"
-          "L+ ${homeDir}/.config/gtk-4.0 644 - - - ${rosePineTheme}/gtk-4.0"
-          "L+ ${homeDir}/.config/gtk-3.0 633 - - - ${rosePineTheme}/gtk-3.0"
+          "L+ ${homeDir}/.config/gtk-4.0 644 - - - ${currentTheme}/gtk-4.0"
+          "L+ ${homeDir}/.config/gtk-3.0 633 - - - ${currentTheme}/gtk-3.0"
           "L+ /tmp/wallpaper 644 - - - ${wallpaper}"
         ];
       targets.sway-session = {

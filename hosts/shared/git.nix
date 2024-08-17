@@ -1,10 +1,12 @@
-{ username, config, lib, ... }:
+{
+  username,
+  config,
+  lib,
+  ...
+}:
 let
   cfg = config.frozen-pond.git;
-  inherit (lib)
-    mkEnableOption
-    mkIf
-    ;
+  inherit (lib) mkEnableOption mkIf;
 in
 {
   options.frozen-pond.git = {

@@ -1,10 +1,13 @@
-{ config, pkgs, inputs, lib, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  lib,
+  ...
+}:
 let
   cfg = config.frozen-pond.emacs;
-  inherit (lib)
-    mkIf
-    mkEnableOption
-    ;
+  inherit (lib) mkIf mkEnableOption;
 in
 {
   options.frozen-pond.emacs = {

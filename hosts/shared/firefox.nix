@@ -1,9 +1,11 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
-  inherit (lib)
-    mkEnableOption
-    mkIf
-    ;
+  inherit (lib) mkEnableOption mkIf;
   cfg = config.frozen-pond.firefox;
 in
 {

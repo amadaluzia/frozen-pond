@@ -62,7 +62,7 @@
           };
           devShells.default = pkgs.mkShell { packages = builtins.attrValues { inherit (pkgs) nil statix; }; };
           packages = import ./pkgs pkgs;
-          formatter = pkgs.nixpkgs-fmt;
+          formatter = pkgs.nixfmt-rfc-style;
           # as soon as i set up treefmt i am removing this, cant be arsed rn
         };
     };

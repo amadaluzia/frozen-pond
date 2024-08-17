@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
   cfg = config.frozen-pond.vesktop;
   inherit (lib) mkEnableOption mkIf;
@@ -8,9 +13,5 @@ in
     enable = mkEnableOption "vesktop";
   };
 
-  config = mkIf cfg.enable {
-    environment.systemPackages = [
-      pkgs.vesktop
-    ];
-  };
+  config = mkIf cfg.enable { environment.systemPackages = [ pkgs.vesktop ]; };
 }

@@ -1,7 +1,6 @@
-{ pkgs, ... }: {
-  imports = [
-    ./hardware.nix
-  ];
+{ pkgs, ... }:
+{
+  imports = [ ./hardware.nix ];
 
   frozen-pond = {
     sway.enable = true;
@@ -37,9 +36,7 @@
 
   i18n.defaultLocale = "en_US.UTF-8";
 
-  environment.systemPackages = [
-    pkgs.wget
-  ];
+  environment.systemPackages = [ pkgs.wget ];
 
   programs.gnupg.agent = {
     enable = true;

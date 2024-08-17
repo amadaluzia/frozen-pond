@@ -1,4 +1,11 @@
-{ config, inputs, pkgs, username, ... }: {
+{
+  config,
+  inputs,
+  pkgs,
+  username,
+  ...
+}:
+{
   config = {
     programs = {
       command-not-found = {

@@ -11,9 +11,7 @@ in
   config = mkIf cfg.enable {
     programs.starship = {
       enable = true;
-      presets = [
-        "nerd-font-symbols"
-      ];
+      presets = [ "nerd-font-symbols" ];
     };
   };
 }

@@ -1,10 +1,12 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.frozen-pond.direnv;
-  inherit (lib)
-    mkEnableOption
-    mkIf
-    ;
+  inherit (lib) mkEnableOption mkIf;
 in
 {
   options.frozen-pond.direnv = {

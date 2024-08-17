@@ -1,10 +1,12 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.frozen-pond.gpg;
-  inherit (lib)
-    mkIf
-    mkEnableOption
-    ;
+  inherit (lib) mkIf mkEnableOption;
 in
 {
   options.frozen-pond.gpg = {

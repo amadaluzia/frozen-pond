@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
   cfg = config.frozen-pond.polkit;
   inherit (lib) mkEnableOption mkIf;
@@ -25,8 +30,6 @@ in
       };
     };
 
-    environment.systemPackages = [
-      pkgs.kdePackages.polkit-kde-agent-1
-    ];
+    environment.systemPackages = [ pkgs.kdePackages.polkit-kde-agent-1 ];
   };
 }

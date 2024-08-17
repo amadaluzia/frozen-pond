@@ -1,24 +1,23 @@
-{ inputs
-, overlays
-,
-}: rec {
+{ inputs, overlays }:
+rec {
   mkHost =
-    { system
-    , hostname
-    , username
-    , extraModules ? [ ]
+    {
+      system,
+      hostname,
+      username,
+      extraModules ? [ ],
     }:
     let
-      pkgs = import inputs.nixpkgs {
-        inherit system overlays;
-      };
+      pkgs = import inputs.nixpkgs { inherit system overlays; };
     in
     {
       nixosConfigurations.${hostname} = inputs.nixpkgs.lib.nixosSystem {
         modules = [
           {
             config = rec {
-              nixpkgs = { inherit overlays; };
+              nixpkgs = {
+                inherit overlays;
+              };
               networking.hostName = hostname;
               users.users.${username} = {
                 name = username;
@@ -35,7 +34,10 @@
                 shell = pkgs.myxonsh;
               };
               nix = {
-                settings.extra-experimental-features = [ "nix-command" "flakes" ];
+                settings.extra-experimental-features = [
+                  "nix-command"
+                  "flakes"
+                ];
                 package = pkgs.nixVersions.latest;
               };
               environment.systemPackages = [ inputs.whyfetch.packages.${pkgs.system}.whyfetch ];

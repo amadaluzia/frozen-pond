@@ -1,11 +1,12 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 let
   cfg = config.frozen-pond.fonts;
-  inherit (lib)
-    mkEnableOption
-    mkOption
-    mkIf
-    ;
+  inherit (lib) mkEnableOption mkOption mkIf;
   inherit (lib.types) listOf package;
 in
 {
@@ -20,12 +21,14 @@ in
 
   config = mkIf cfg.enable {
     fonts = {
-      packages = (with pkgs; [
-        recursive
-        merriweather
-        twemoji-color-font
-        mplus-outline-fonts.githubRelease
-      ]) ++ cfg.extraPackages;
+      packages =
+        (with pkgs; [
+          recursive
+          merriweather
+          twemoji-color-font
+          mplus-outline-fonts.githubRelease
+        ])
+        ++ cfg.extraPackages;
       fontconfig = {
         enable = true;
         defaultFonts = {
