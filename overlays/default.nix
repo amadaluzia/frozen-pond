@@ -59,7 +59,7 @@ let
       ];
     });
   };
-  adds = final: _prev: import ../pkgs { pkgs = final; };
+  adds = final: _prev: import ../pkgs final;
 in
 [
   fonts

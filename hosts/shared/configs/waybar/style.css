@@ -24,7 +24,8 @@ tooltip {
 #memory,
 #network,
 #tray,
-#clock {
+#clock,
+#disk {
   background: @base;
   padding: 0px 7px;
   margin: 10px 0px 0px 0px;
@@ -63,6 +64,10 @@ tooltip {
 #window {
   margin-left: 60px;
   margin-right: 60px;
+}
+
+#disk {
+  color: @foam;
 }
 
 #network {

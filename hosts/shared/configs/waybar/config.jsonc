@@ -9,6 +9,7 @@
   "modules-right": [
 	  "network",
 	  "memory",
+    "disk",
 	  "wireplumber",
 	  "tray",
 	  "clock"
@@ -61,5 +62,11 @@
     "format-disconnected": "󱘖 ",
     "format-alt": "{ifname}:{essid} {ipaddr}/{cidr}",
     "on-click-right": "wezterm -e nmtui"
+  },
+  "disk": {
+      "interval": 30,
+      "format": " {specific_used:0.1f}GB/{specific_total:0.1f}GB ({path})",
+      "path": "/",
+      "unit": "GB"
   }
 }

@@ -1,4 +1,4 @@
-{ username, config, pkgs, lib, ... }:
+{ username, config, lib, ... }:
 let
   cfg = config.frozen-pond.git;
   inherit (lib)
@@ -27,7 +27,7 @@ in
     };
 
     systemd.user.tmpfiles.rules = [
-      "L+ /home/${username}/.gitconfig - - - - ${./. + "/configs/git/gitconfig"}"
+      "C+ /home/${username}/.gitconfig - - - - ${./. + "/configs/git/gitconfig"}"
     ];
   };
 }
