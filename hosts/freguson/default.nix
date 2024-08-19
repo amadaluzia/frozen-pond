@@ -19,7 +19,7 @@
     starship.enable = true;
     i3.enable = true;
     neovim.enable = true;
-    niri.enable = true;
+    eww.enable = true;
   };
 
   networking = {

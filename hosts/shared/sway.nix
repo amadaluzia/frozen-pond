@@ -8,7 +8,7 @@
 let
   cfg = config.frozen-pond.sway;
   inherit (lib) mkEnableOption mkIf;
-  currentThemePackage = pkgs.rose-pine;
+  currentThemePackage = pkgs.gruvbox-gtk-theme;
 in
 {
   options.frozen-pond.sway = {
@@ -53,14 +53,10 @@ in
     systemd.user = {
       tmpfiles.rules =
         let
-          wallpaper = pkgs.fetchurl {
-            url = "https://i.imgur.com/7WGgZt5.png";
-            sha256 = "AQSVUxYxtR47G/6tQBdDUB1SPYKuQzqQlJguHgyR8Mk=";
-          };
-
           homeDir = "/home/${username}";
           configDir = ./. + "/configs";
-          currentTheme = "${currentThemePackage}/share/themes/RosePine-Main-BL";
+          currentTheme = "${currentThemePackage}/share/themes/Gruvbox-Dark";
+          wallpaper = "${../../wallpapers + "/ThingiesCafe.jpg"}";
         in
         [
           "L+ ${homeDir}/.config/sway 0644 - - - ${configDir}/sway"

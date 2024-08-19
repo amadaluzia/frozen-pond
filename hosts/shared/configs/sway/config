@@ -113,7 +113,7 @@ bindsym $mod+r mode "resize"
 bar {
     position top
 
-    swaybar_command waybar
+    swaybar_command eww open bar
 }
 
 set $gnome-schema org.gnome.desktop.interface

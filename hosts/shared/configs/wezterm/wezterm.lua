@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 local M = {}
 
 -- JANK COLOUR SCHEME STUFF!!!
-local my_colour_scheme = wezterm.color.get_builtin_schemes()["rose-pine"]
+local my_colour_scheme = wezterm.color.get_builtin_schemes()["GruvboxDark"]
 
 M.color_schemes = {
 	["My Colour Scheme"] = my_colour_scheme,
@@ -11,9 +11,9 @@ M.color_schemes = {
 M.color_scheme = "My Colour Scheme"
 
 -- fonts
-M.font = wezterm.font_with_fallback {
-	{ family = "Monospace", },
-}
+M.font = wezterm.font_with_fallback({
+	{ family = "Monospace" },
+})
 
 -- window padding
 M.window_padding = {
@@ -27,8 +27,8 @@ M.window_padding = {
 M.enable_tab_bar = false
 
 wezterm.on("format-window-title", function()
-  local title = "WezTerm"
-  return title
+	local title = "WezTerm"
+	return title
 end)
 
 return M

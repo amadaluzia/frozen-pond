@@ -54,13 +54,24 @@
         hosts;
 
       perSystem =
-        { pkgs, system, ... }:
+        { pkgs, system, self', ... }:
         {
           _module.args.pkgs = import inputs.nixpkgs {
             inherit system overlays;
             config.allowUnfree = true;
           };
-          devShells.default = pkgs.mkShell { packages = builtins.attrValues { inherit (pkgs) nil statix; }; };
+          devShells.default = pkgs.mkShell {
+            packages = [
+              self'.formatter
+              pkgs.nil
+              pkgs.stylua
+              pkgs.lua-language-server
+              pkgs.vscode-langservers-extracted
+              pkgs.nodePackages_latest.prettier
+              pkgs.nodePackages_latest.bash-language-server
+              pkgs.shellcheck
+            ];
+          };
           packages = import ./pkgs pkgs;
           formatter = pkgs.nixfmt-rfc-style;
           # as soon as i set up treefmt i am removing this, cant be arsed rn

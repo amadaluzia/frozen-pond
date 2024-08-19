@@ -1,89 +1,29 @@
-@import "includes/rose-pine.css";
-
-* {
-  border: none;
-  border-radius: 0;
-  font-family: "sans";
-  font-weight: bold;
-  font-size: 14px;
-  min-height: 0;
-}
+@import "./includes/gruvbox.css";
 
 window#waybar {
-  background: transparent;
-  color: @text;
+  background: @bg0;
+  color: @fg;
 }
 
-tooltip {
-  background: @base;
-}
-
-#workspaces,
-#window,
-#wireplumber,
-#memory,
 #network,
-#tray,
-#clock,
-#disk {
-  background: @base;
-  padding: 0px 7px;
-  margin: 10px 0px 0px 0px;
-}
-
-#workspaces {
-  background: @base;
-  margin-left: 10px;
-  padding-right: 0px;
-}
-
-#workspaces button {
-  padding: 5px;
-  color: @highlightmed;
-}
-
-#workspaces button.active {
-  color: @text;
-}
-
-#workspaces button.focused {
-  color: @surface;
-  background: @love;
-}
-
-#workspaces button.urgent {
-  color: @base;
-  background: @pine;
-}
-
-#workspaces button:hover {
-  background: @highlightlow;
-  color: @text;
-}
-
-#window {
-  margin-left: 60px;
-  margin-right: 60px;
-}
-
-#disk {
-  color: @foam;
-}
-
-#network {
-  color: @love;
+#memory,
+#disk,
+#wireplumber,
+#clock {
+  padding-left: 18px;
 }
 
 #clock {
-  color: @text;
-  background: @pine;
-  margin-right: 10px;
+  padding-right: 18px;
 }
 
-#memory {
-  color: #3e8fb0;
+#workspaces {
+  animation-duration: 0s;
 }
 
-#wireplumber {
-  color: @iris;
+#workspaces button {
+  color: @fg;
+  border: 0px;
+  border-radius: 0px;
 }
+

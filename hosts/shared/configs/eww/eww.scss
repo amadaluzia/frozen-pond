@@ -1,0 +1,72 @@
+$base         :   #191724;
+$surface      :   #1f1d2e;
+$overlay      :   #26233a;
+$muted        :   #6e6a86;
+$subtle       :   #908caa;
+$text         :   #e0def4;
+$
+$love         :   #eb6f92;
+$gold         :   #f6c177;
+$rose         :   #ebbcba;
+$pine         :   #31748f;
+$foam         :   #9ccfd8;
+$iris         :   #c4a7e7;
+$highlightLow :   #21202e;
+$highlightMed :   #403d52;
+$highlightHigh:   #524f67;
+
+* {
+  all: unset; //Unsets everything so you can style everything from scratch
+}
+
+//Global Styles
+.bar {
+  background-color: transparent;
+  color: @text;
+  padding: 10px 10px 10px 10px;
+}
+
+// Styles on classes (see eww.yuck for more information)
+
+.sidestuff slider {
+  all: unset;
+  color: #ffd5cd;
+}
+
+.metric scale trough highlight {
+  all: unset;
+  background-color: #D35D6E;
+  color: #000000;
+  border-radius: 10px;
+}
+.metric scale trough {
+  all: unset;
+  background-color: #4e4e4e;
+  border-radius: 50px;
+  min-height: 3px;
+  min-width: 50px;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+.metric scale trough highlight {
+  all: unset;
+  background-color: #D35D6E;
+  color: #000000;
+  border-radius: 10px;
+}
+.metric scale trough {
+  all: unset;
+  background-color: #4e4e4e;
+  border-radius: 50px;
+  min-height: 3px;
+  min-width: 50px;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+.label-ram {
+  font-size: large;
+}
+.workspaces button:hover {
+  color: @rose;
+}
+

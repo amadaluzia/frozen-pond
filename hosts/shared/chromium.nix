@@ -17,7 +17,7 @@ in
     programs.chromium = {
       enable = true;
       extensions = [
-        "noimedcjdohhokijigpfcbjcfcaaahej"
+        "ihennfdbghdiflogeancnalflhgmanop" # Gruvbox
         "cjpalhdlnbpafiamejdnhcphjbkeiagm"
         "eimadpbcbfnmbkopoojfekhnkhdbieeh"
         "clngdbkpkpeebahjckkjfobafhncgmne"
