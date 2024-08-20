@@ -9,6 +9,7 @@ window#waybar {
 #memory,
 #disk,
 #wireplumber,
+#tray,
 #clock {
   padding-left: 18px;
 }
