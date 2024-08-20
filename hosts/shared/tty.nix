@@ -4,22 +4,22 @@
     font = "${pkgs.terminus_font}/share/consolefonts/ter-132n.psf.gz";
     packages = with pkgs; [ terminus_font ];
     colors = [
-      "191724"
-      "eb6f92"
-      "9ccfd8"
-      "f6c177"
-      "31748f"
-      "c4a7e7"
-      "ebbcba"
-      "e0def4"
-      "26233a"
-      "eb6f92"
-      "9ccfd8"
-      "f6c177"
-      "31748f"
-      "c4a7e7"
-      "ebbcba"
-      "e0def4"
+      "282828"
+      "928374"
+      "cc241d"
+      "fb4934"
+      "98971a"
+      "b8bb26"
+      "d79921"
+      "fabd2f"
+      "458588"
+      "83a598"
+      "b16286"
+      "d3869b"
+      "689d6a"
+      "8ec07c"
+      "a89984"
+      "ebdbb2"
     ];
     keyMap = "us";
   };
