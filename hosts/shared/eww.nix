@@ -1,4 +1,10 @@
-{ username, config, lib, pkgs, ... }:
+{
+  username,
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.frozen-pond.eww;
   inherit (lib) mkEnableOption mkIf;
