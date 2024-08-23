@@ -22,14 +22,14 @@
   };
 
   outputs =
-    inputs:
+    inputs@{ self, nixpkgs, ... }:
     let
       supportedSystems = [ "x86_64-linux" ];
       overlays = (import ./overlays { inherit inputs; });
       forAllSystems =
         f:
-        inputs.nixpkgs.lib.genAttrs supportedSystems (
-          system: f { pkgs = import inputs.nixpkgs { inherit system overlays; }; }
+        nixpkgs.lib.genAttrs supportedSystems (
+          system: f { pkgs = import nixpkgs { inherit system overlays; }; }
         );
       inherit (import ./hosts/lib.nix { inherit inputs overlays; }) newNixosSystem;
       treefmtEval = forAllSystems ({ pkgs }: inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
