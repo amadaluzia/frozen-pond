@@ -6,5 +6,5 @@ setup(
     # Modules to import from other scripts:
     packages=find_packages(),
     # Executables
-    scripts=["fzuplock"],
+    scripts=["fzuplock.py"],
 )
