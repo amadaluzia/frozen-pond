@@ -1,12 +1,11 @@
 {
-  description = "NixOS";
-
+  description = "Frozen Pond";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
-    parts.url = "github:hercules-ci/flake-parts";
     pankomacs.url = "git+https://codeberg.org/amadaluzia/pankomacs.git";
     whyfetch.url = "git+https://codeberg.org/amadaluzia/whyfetch.git";
     nixstart.url = "git+https://codeberg.org/amadaluzia/nixstart.nvim.git";
+    treefmt-nix.url = "github:numtide/treefmt-nix";
     flake-programs-sqlite = {
       url = "github:wamserma/flake-programs-sqlite";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,56 +24,43 @@
   outputs =
     inputs:
     let
-      inherit (import ./hosts/lib.nix { inherit inputs overlays; }) mkHosts;
-      overlays = import ./overlays { inherit inputs; };
+      supportedSystems = [ "x86_64-linux" ];
+      overlays = (import ./overlays { inherit inputs; });
+      forAllSystems =
+        f:
+        inputs.nixpkgs.lib.genAttrs supportedSystems (
+          system: f { pkgs = import inputs.nixpkgs { inherit system overlays; }; }
+        );
+      inherit (import ./hosts/lib.nix { inherit inputs overlays; }) newNixosSystem;
+      treefmtEval = forAllSystems ({ pkgs }: inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
     in
-    inputs.parts.lib.mkFlake { inherit inputs; } {
-      systems = [ "x86_64-linux" ];
-
-      flake =
-        let
-          hosts = mkHosts [
+    {
+      nixosConfigurations = {
+        freguson = newNixosSystem {
+          hostname = "freguson";
+          username = "amadal";
+          system = "x86_64-linux";
+          extraModules = [
+            inputs.cosmic.nixosModules.default
+            inputs.niri.nixosModules.niri
             {
-              hostname = "freguson";
-              username = "amadal";
-              system = "x86_64-linux";
-              extraModules = [
-                inputs.cosmic.nixosModules.default
-                inputs.niri.nixosModules.niri
-                {
-                  nix.settings = {
-                    substituters = [ "https://cosmic.cachix.org/" ];
-                    trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
-                  };
-                }
-              ];
+              nix.settings = {
+                substituters = [ "https://cosmic.cachix.org/" ];
+                trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+              };
             }
           ];
-        in
-        hosts;
-
-      perSystem =
-        { pkgs, system, self', ... }:
-        {
-          _module.args.pkgs = import inputs.nixpkgs {
-            inherit system overlays;
-            config.allowUnfree = true;
-          };
-          devShells.default = pkgs.mkShell {
-            packages = [
-              self'.formatter
-              pkgs.nil
-              pkgs.stylua
-              pkgs.lua-language-server
-              pkgs.vscode-langservers-extracted
-              pkgs.nodePackages_latest.prettier
-              pkgs.nodePackages_latest.bash-language-server
-              pkgs.shellcheck
-            ];
-          };
-          packages = import ./pkgs pkgs;
-          formatter = pkgs.nixfmt-rfc-style;
-          # as soon as i set up treefmt i am removing this, cant be arsed rn
         };
+      };
+
+      overlays.default = overlays;
+      packages = forAllSystems ({ pkgs }: import ./pkgs pkgs);
+      devShells = forAllSystems (
+        { pkgs }:
+        {
+          default = pkgs.callPackage ./shell.nix { };
+        }
+      );
+      formatter = forAllSystems ({ pkgs }: treefmtEval.${pkgs.system}.config.build.wrapper);
     };
 }

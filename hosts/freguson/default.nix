@@ -13,7 +13,7 @@
     gpg.enable = true;
     grub.enable = true;
     pipewire.enable = true;
-    vesktop.enable = true;
+    # vesktop.enable = true;
     polkit.enable = true;
     virtualisation.enable = true;
     starship.enable = true;
