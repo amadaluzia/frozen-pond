@@ -6,4 +6,5 @@
   programs.stylua.enable = true;
   programs.shellcheck.enable = true;
   programs.prettier.enable = true;
+  programs.black.enable = true;
 }
