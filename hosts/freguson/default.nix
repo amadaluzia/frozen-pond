@@ -17,7 +17,7 @@
     polkit.enable = true;
     virtualisation.enable = true;
     starship.enable = true;
-    i3.enable = true;
+    awesome.enable = true;
     neovim.enable = true;
     eww.enable = true;
   };
@@ -32,9 +32,14 @@
   hardware.opengl = {
     enable = true;
     driSupport = true;
+    driSupport32Bit = true;
   };
 
   i18n.defaultLocale = "en_US.UTF-8";
+
+  services.xserver.deviceSection = ''
+    Option "VariableRefresh" "true"
+  '';
 
   environment.systemPackages = [ pkgs.wget ];
 

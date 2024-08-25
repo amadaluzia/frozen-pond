@@ -18,7 +18,7 @@ _: {
     ./cosmic.nix
     ./starship.nix
     ./xonsh.nix
-    ./i3.nix
+    ./awesome.nix
     ./neovim.nix
     ./niri.nix
     ./eww.nix

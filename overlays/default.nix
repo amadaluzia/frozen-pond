@@ -68,4 +68,5 @@ in
   xonsh
   adds
   inputs.niri.overlays.niri
+  inputs.f2k.overlays.window-managers
 ]
