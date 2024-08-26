@@ -1,23 +1,21 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 let
-  cfg = config.frozen-pond.awesome;
+  cfg = config.frozen-pond.qtile;
   inherit (lib) mkEnableOption mkIf;
 in
 {
-  options.frozen-pond.awesome = {
-    enable = mkEnableOption "awesome";
+  options.frozen-pond.qtile = {
+    enable = mkEnableOption "qtile";
   };
 
   config = mkIf cfg.enable {
     services.xserver = {
-      windowManager.awesome = {
+      windowManager.qtile = {
         enable = true;
-        package = pkgs.awesome-git;
       };
       displayManager.sx.enable = true;
       enable = true;

@@ -17,7 +17,7 @@
     polkit.enable = true;
     virtualisation.enable = true;
     starship.enable = true;
-    awesome.enable = true;
+    qtile.enable = true;
     neovim.enable = true;
     eww.enable = true;
   };
