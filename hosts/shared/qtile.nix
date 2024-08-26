@@ -1,8 +1,4 @@
-{
-  config,
-  lib,
-  ...
-}:
+{ config, lib, ... }:
 let
   cfg = config.frozen-pond.qtile;
   inherit (lib) mkEnableOption mkIf;
@@ -16,6 +12,7 @@ in
     services.xserver = {
       windowManager.qtile = {
         enable = true;
+        extraPackages = python3Packages: builtins.attrValues { inherit (python3Packages) qtile-extras; };
       };
       displayManager.sx.enable = true;
       enable = true;

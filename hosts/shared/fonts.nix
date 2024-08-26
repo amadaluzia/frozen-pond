@@ -21,12 +21,9 @@ in
 
   config = mkIf cfg.enable {
     fonts = {
-      packages = (builtins.attrValues {
-        inherit (pkgs)
-          recursive
-          merriweather
-          twemoji-color-font
-          ;
+      packages =
+        (builtins.attrValues {
+          inherit (pkgs) recursive merriweather twemoji-color-font;
 
           mplus-outline-fonts = pkgs.mplus-outline-fonts.githubRelease;
         })
