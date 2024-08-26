@@ -38,12 +38,17 @@ flake_inputs: list[str] = list(
 )
 
 fz: pyfzf.FzfPrompt = pyfzf.FzfPrompt()
-inputs_to_update: map = map(
+inputs_to_update: list[str] = map(
     add_update_input, fz.prompt(flake_inputs, "--multi --cycle")
 )
 
+if len(list(inputs_to_update)) != 0:
+    command = flatten_list(["nix", "flake", "lock", flatten_list(inputs_to_update)])
+else:
+    command = ["nix", "flake", "lock", "--recreate-lock-file"]
+
 nix_flake_update: sp.CompletedProcess = sp.run(
-    flatten_list(["nix", "flake", "lock", flatten_list(list(inputs_to_update))]),
+    command,
     stdout=sys.stdout,
 )
 
