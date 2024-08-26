@@ -595,11 +595,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1724527338,
-        "narHash": "sha256-jC4BDjKKrfeftz9gtpxYKO4hU0ybQi4Un4upFusSsZQ=",
+        "lastModified": 1724621556,
+        "narHash": "sha256-nWHX5NNmNcsuAtKBOdPVVhnQJWiQlBaBqqHNX1wmMVY=",
         "owner": "wamserma",
         "repo": "flake-programs-sqlite",
-        "rev": "e209d1ee7ad1c19e3c689ae0c8280361dd39c520",
+        "rev": "e67a456a68bb24bf1e844474d609f81ed0690959",
         "type": "github"
       },
       "original": {
@@ -1424,11 +1424,11 @@
         "nixpkgs": "nixpkgs_12"
       },
       "locked": {
-        "lastModified": 1724039531,
+        "lastModified": 1724615538,
         "narHash": "sha256-f5WwxLbFOKw9v4GZsEB4d2u6LxRHPIwDQPI1aE9cU+M=",
         "ref": "refs/heads/main",
-        "rev": "ca301513d856fd2b35df9a1703d6a3d6be49974c",
-        "revCount": 4,
+        "rev": "16e3cbfa70aa33a0216af8f76251ec0d29c03ab6",
+        "revCount": 6,
         "type": "git",
         "url": "https://codeberg.org/amadaluzia/nixstart.nvim.git"
       },
