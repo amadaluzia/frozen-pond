@@ -22,6 +22,9 @@
       "L+ /home/${username}/.xonshrc - - - - ${./. + "/configs/xonshrc"}"
     ];
 
-    environment.systemPackages = [ config.programs.starship.package ];
+    environment.systemPackages = [
+      config.programs.starship.package
+      pkgs.eza
+    ];
   };
 }

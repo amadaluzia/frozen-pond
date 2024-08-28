@@ -10,3 +10,8 @@ xontribs_load([
 
 hostname = $HOSTNAME
 aliases["rebs"] = f"sudo nixos-rebuild switch --flake /etc/nixos#{hostname}"
+
+eza_options = "--group-directories-first --colour=always --colour-scale-mode=fixed --icons=auto --header --inode --git"
+
+aliases["ls"] = f"eza -la {eza_options}"
+aliases["l"] = f"eza -a {eza_options}"
