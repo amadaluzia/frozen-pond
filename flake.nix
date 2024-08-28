@@ -2,6 +2,7 @@
   description = "Frozen Pond";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    disko.url = "github:nix-community/disko";
     pankomacs.url = "git+https://codeberg.org/amadaluzia/pankomacs.git";
     whyfetch.url = "git+https://codeberg.org/amadaluzia/whyfetch.git";
     nixstart.url = "git+https://codeberg.org/amadaluzia/nixstart.nvim.git";
@@ -37,19 +38,12 @@
     in
     {
       nixosConfigurations = {
-        freguson = newNixosSystem {
-          hostname = "freguson";
-          username = "amadal";
+        toothless = newNixosSystem {
+          hostname = "toothless";
+          username = "artur";
           system = "x86_64-linux";
           extraModules = [
-            inputs.cosmic.nixosModules.default
-            inputs.niri.nixosModules.niri
-            {
-              nix.settings = {
-                substituters = [ "https://cosmic.cachix.org/" ];
-                trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
-              };
-            }
+	    inputs.disko.nixosModules.disko
           ];
         };
       };

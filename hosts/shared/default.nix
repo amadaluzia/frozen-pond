@@ -22,5 +22,7 @@ _: {
     ./neovim.nix
     ./niri.nix
     ./eww.nix
+    ./aliases.nix
+    ./gtk.nix
   ];
 }

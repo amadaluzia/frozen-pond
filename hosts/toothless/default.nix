@@ -1,6 +1,9 @@
 { pkgs, ... }:
 {
-  imports = [ ./hardware.nix ];
+  imports = [
+    ./hardware.nix
+    ./disks.nix
+  ];
 
   frozen-pond = {
     sway.enable = true;
@@ -11,7 +14,10 @@
     direnv.enable = true;
     git.enable = true;
     gpg.enable = true;
-    grub.enable = true;
+    grub = {
+      enable = true;
+      disko = true;
+    };
     pipewire.enable = true;
     # vesktop.enable = true;
     polkit.enable = true;

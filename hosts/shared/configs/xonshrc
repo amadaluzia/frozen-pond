@@ -7,3 +7,6 @@ xontribs_load([
   "direnv",
   "fish_completer",
 ])
+
+hostname = $HOSTNAME
+aliases["rebs"] = f"sudo nixos-rebuild switch --flake /etc/nixos#{hostname}"

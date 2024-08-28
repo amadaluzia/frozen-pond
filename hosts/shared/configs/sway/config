@@ -1,4 +1,3 @@
-
 set $mod Mod4
 
 set $left h
@@ -113,15 +112,15 @@ bindsym $mod+r mode "resize"
 bar {
     position top
 
-    swaybar_command eww open bar
+    swaybar_command waybar
 }
 
 set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
-    gsettings set $gnome-schema gtk-theme 'oomox-rose-pine'
-    gsettings set $gnome-schema icon-theme 'oomox-rose-pine'
-    gsettings set $gnome-schema cursor-theme 'BreezeX-RoséPine'
+    gsettings set $gnome-schema gtk-theme 'Tokyonight-Storm-BL'
+    gsettings set $gnome-schema icon-theme 'Tokyonight-Dark-Cyan'
+    gsettings set $gnome-schema cursor-theme 'Simp1e-Tokyo-Night'
 }
 
 include /etc/sway/config.d/*

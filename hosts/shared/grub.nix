@@ -22,6 +22,11 @@ in
       description = "Enable UEFI support for GRUB";
       default = true;
     };
+    disko = mkOption {
+      type = types.bool;
+      description = "If enables, removes the device check.";
+      default = false;
+    };
   };
 
   config = mkIf cfg.enable {

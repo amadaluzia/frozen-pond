@@ -1,5 +1,6 @@
 {
   "height": 0,
+  "position": "bottom",
   "modules-left": [
 	  "sway/workspaces"
   ],

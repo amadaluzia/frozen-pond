@@ -17,7 +17,7 @@ in
     programs.chromium = {
       enable = true;
       extensions = [
-        "ihennfdbghdiflogeancnalflhgmanop" # Gruvbox
+        "pgbjifpikialeahbdendkjioeafbmfkn" # Tokyo Night Storm
         "cjpalhdlnbpafiamejdnhcphjbkeiagm"
         "eimadpbcbfnmbkopoojfekhnkhdbieeh"
         "clngdbkpkpeebahjckkjfobafhncgmne"

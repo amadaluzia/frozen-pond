@@ -8,7 +8,6 @@
 let
   cfg = config.frozen-pond.sway;
   inherit (lib) mkEnableOption mkIf;
-  currentThemePackage = pkgs.gruvbox-gtk-theme;
 in
 {
   options.frozen-pond.sway = {
@@ -43,27 +42,17 @@ in
     programs.waybar.enable = true;
     programs.dconf.enable = true;
 
-    environment.systemPackages = [
-      currentThemePackage
-      pkgs.rose-pine-cursor
-      pkgs.rose-pine-icon-theme
-      pkgs.glib
-    ];
-
     systemd.user = {
       tmpfiles.rules =
         let
           homeDir = "/home/${username}";
           configDir = ./. + "/configs";
-          currentTheme = "${currentThemePackage}/share/themes/Gruvbox-Dark";
-          wallpaper = "${../../wallpapers + "/ThingiesCafe.jpg"}";
+          wallpaper = "${../../wallpapers + "/ChainsawMan.png"}";
         in
         [
           "L+ ${homeDir}/.config/sway 0644 - - - ${configDir}/sway"
           "L+ ${homeDir}/.config/wofi 0644 - - - ${configDir}/wofi"
           "L+ ${homeDir}/.config/waybar 0644 - - - ${configDir}/waybar"
-          "L+ ${homeDir}/.config/gtk-4.0 644 - - - ${currentTheme}/gtk-4.0"
-          "L+ ${homeDir}/.config/gtk-3.0 633 - - - ${currentTheme}/gtk-3.0"
           "L+ /tmp/wallpaper 644 - - - ${wallpaper}"
         ];
       targets.sway-session = {

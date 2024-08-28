@@ -1,7 +1,7 @@
-@import "./includes/gruvbox.css";
+@import "./includes/tokyonight.css";
 
 window#waybar {
-  background: @bg0;
+  background: @bg;
   color: @fg;
 }
 
@@ -11,11 +11,32 @@ window#waybar {
 #wireplumber,
 #tray,
 #clock {
-  padding-left: 18px;
+  padding: 0 18px;
+  color: @black;
+}
+
+#network {
+  background: @red;
+}
+
+#memory {
+  background: @yellow;
+}
+
+#disk {
+  background: @green;
+}
+
+#wireplumber {
+  background: @blue;
+}
+
+#tray {
+  background: @black;
 }
 
 #clock {
-  padding-right: 18px;
+  background: @magenta;
 }
 
 #workspaces {
@@ -26,4 +47,8 @@ window#waybar {
   color: @fg;
   border: 0px;
   border-radius: 0px;
+}
+
+#workspaces button.focused {
+  color: @cyan;
 }

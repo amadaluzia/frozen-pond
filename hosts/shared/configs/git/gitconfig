@@ -1,13 +1,10 @@
 [user]
 name = Artur Manuel
 email = balkenix@outlook.com
-signingKey = 7ECEF174
+signingKey = 55C20A84
 
 [commit]
 gpgsign = true
-
-[remote "origin"]
-fetch = +refs/heads/*:refs/remotes/origin/*
 
 [alias]
 ;; add ;;
