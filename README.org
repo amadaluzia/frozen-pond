@@ -22,3 +22,4 @@ No choice really. Not going to get to into it.
 
 *** CREDS!!!!!!!!
 shoutouts to [[https://codeberg.org/midirhee12][midirhee12]] for the xontribs
+shoutouts to [[https://github.com/lokesh-krishna]] for the wofi config
