@@ -6,7 +6,7 @@ set $up k
 set $right l
 
 set $term wezterm
-set $menu wofi --show drun
+set $menu fuzzel
 
 output * bg /tmp/wallpaper fill
 

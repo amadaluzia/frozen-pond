@@ -21,9 +21,9 @@ in
       extraPackages = [
         pkgs.wezterm
         pkgs.swaybg
-        pkgs.wofi
+        pkgs.fuzzel
         pkgs.pamixer
-
+        pkgs.sway-contrib.grimshot
       ];
     };
 
@@ -51,7 +51,7 @@ in
         in
         [
           "L+ ${homeDir}/.config/sway 0644 - - - ${configDir}/sway"
-          "L+ ${homeDir}/.config/wofi 0644 - - - ${configDir}/wofi"
+          "L+ ${homeDir}/.config/fuzzel 0644 - - - ${configDir}/fuzzel"
           "L+ ${homeDir}/.config/waybar 0644 - - - ${configDir}/waybar"
           "L+ /tmp/wallpaper 644 - - - ${wallpaper}"
         ];
