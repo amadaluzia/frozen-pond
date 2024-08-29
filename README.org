@@ -8,18 +8,25 @@
 -----
 
 **** Why 3 seperate dotfiles now?
+
 I recently had to switch back to an old MacBook Pro (2013-2014) I had, and switching hardware for something like that is annoying.
-I also wanted to stray away from using Home-Manager on my NixOS flake.
+
+I also just wanted to stray away from using Home-Manager on my NixOS flake.
 
 **** Why no HM?
+
 While I am alright enough around home-manager, wrapping my configs and systemd-tmpfiles just feel like a better solution for me.
+
 It's already enough for 2 module systems (flake-parts and nixos), dont need another.
 
 **** Why switch back to a MacBook Pro?
+
 No choice really. Not going to get to into it.
 
 -----
 
 *** CREDS!!!!!!!!
+
 shoutouts to [[https://codeberg.org/midirhee12][midirhee12]] for the xontribs
+
 shoutouts to [[https://github.com/kzndotsh][kaizen]] for her fuzzel config
