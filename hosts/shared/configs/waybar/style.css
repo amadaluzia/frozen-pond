@@ -10,9 +10,14 @@ window#waybar {
 #disk,
 #wireplumber,
 #tray,
-#clock {
-  padding: 0 18px;
+#clock,
+#custom-icon {
+  padding: 0 10px;
   color: @black;
+}
+
+#custom-icon {
+  background: @cyan;
 }
 
 #network {
@@ -45,6 +50,7 @@ window#waybar {
 
 #workspaces button {
   color: @fg;
+  padding: 3px 0;
   border: 0px;
   border-radius: 0px;
 }
