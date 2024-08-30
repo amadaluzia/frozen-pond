@@ -3,7 +3,6 @@
   pkgs,
   inputs,
   lib,
-  username,
   ...
 }:
 let
@@ -23,9 +22,5 @@ in
       install = true;
       defaultEditor = true;
     };
-
-    systemd.user.tmpfiles.rules = [
-      "L+ /home/${username}/.config/emacs 0644 - - - ${./configs/emacs}"
-    ];
   };
 }
