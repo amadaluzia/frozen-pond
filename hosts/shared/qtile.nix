@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 let
   cfg = config.frozen-pond.qtile;
   inherit (lib) mkEnableOption mkIf;
@@ -16,6 +16,12 @@ in
       };
       displayManager.sx.enable = true;
       enable = true;
+    };
+    environment.systemPackages = builtins.attrValues {
+      inherit (pkgs)
+        maim
+        slop
+        ;
     };
   };
 }
