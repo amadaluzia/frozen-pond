@@ -15,3 +15,5 @@ eza_options = "--group-directories-first --colour=always --colour-scale-mode=fix
 
 aliases["ls"] = f"eza -la {eza_options}"
 aliases["l"] = f"eza -a {eza_options}"
+aliases["v"] = "nvim"
+aliases["e"] = "emacsclient -nw"

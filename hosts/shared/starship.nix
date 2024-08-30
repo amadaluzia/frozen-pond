@@ -11,7 +11,14 @@ in
   config = mkIf cfg.enable {
     programs.starship = {
       enable = true;
-      presets = [ "nerd-font-symbols" ];
+      settings = {
+        character = {
+          success_symbol = "[󰇵 ](bold green)";
+          error_symbol = "[󰇸 ](bold green)";
+        };
+        format = "$username in $directory$character";
+        right_format = "$all";
+      };
     };
   };
 }
