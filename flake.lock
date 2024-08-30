@@ -1458,11 +1458,11 @@
         "nixpkgs": "nixpkgs_13"
       },
       "locked": {
-        "lastModified": 1724615538,
-        "narHash": "sha256-f5WwxLbFOKw9v4GZsEB4d2u6LxRHPIwDQPI1aE9cU+M=",
+        "lastModified": 1725021005,
+        "narHash": "sha256-On+IP1OvwWY/mSGH/jtw7Q8mgrBGkxu45tHSYSNlzMU=",
         "ref": "refs/heads/main",
-        "rev": "16e3cbfa70aa33a0216af8f76251ec0d29c03ab6",
-        "revCount": 6,
+        "rev": "19cfda613e32306455f6d70def02046accadf319",
+        "revCount": 7,
         "type": "git",
         "url": "https://codeberg.org/amadaluzia/nixstart.nvim.git"
       },
