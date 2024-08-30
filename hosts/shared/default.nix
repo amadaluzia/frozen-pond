@@ -1,7 +1,15 @@
-{ lib, ... }: {
+{ lib, ... }:
+{
   options.frozen-pond = {
     desktop = lib.mkOption {
-      type = lib.types.nullOr (lib.types.enum [ "kde" "sway" "qtile" "cosmic" ]);
+      type = lib.types.nullOr (
+        lib.types.enum [
+          "kde"
+          "sway"
+          "qtile"
+          "cosmic"
+        ]
+      );
       default = "sway";
       description = "Selects the GUI environment to use.";
     };

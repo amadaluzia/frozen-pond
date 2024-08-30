@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   inherit (lib) mkIf;
 in
@@ -12,11 +17,6 @@ in
       displayManager.sx.enable = true;
       enable = true;
     };
-    environment.systemPackages = builtins.attrValues {
-      inherit (pkgs)
-        maim
-        slop
-        ;
-    };
+    environment.systemPackages = builtins.attrValues { inherit (pkgs) maim slop; };
   };
 }

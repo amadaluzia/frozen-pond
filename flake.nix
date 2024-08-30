@@ -42,9 +42,7 @@
           hostname = "toothless";
           username = "artur";
           system = "x86_64-linux";
-          extraModules = [
-	    inputs.disko.nixosModules.disko
-          ];
+          extraModules = [ inputs.disko.nixosModules.disko ];
         };
       };
 
