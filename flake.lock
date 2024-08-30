@@ -574,11 +574,11 @@
         "nixpkgs-lib": "nixpkgs-lib_2"
       },
       "locked": {
-        "lastModified": 1725015982,
-        "narHash": "sha256-1WXS/BBKZUcWlfeZL7U8ujuCdlLktImbpmJgN9zsZXM=",
+        "lastModified": 1725024810,
+        "narHash": "sha256-ODYRm8zHfLTH3soTFWE452ydPYz2iTvr9T8ftDMUQ3E=",
         "owner": "hercules-ci",
         "repo": "flake-parts",
-        "rev": "4f37dc19b47b50512008f38858734f8fa8a4e0cc",
+        "rev": "af510d4a62d071ea13925ce41c95e3dec816c01d",
         "type": "github"
       },
       "original": {
@@ -613,11 +613,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1724999464,
-        "narHash": "sha256-zORxiIB1LeGQXZMVqcBFe0O3d1lSvGjSvEQg4lkkEUM=",
+        "lastModified": 1725035299,
+        "narHash": "sha256-2FIA+9w9j0Z9SlQzuWuobfWvPGFQXcjsPDe8KzwNWZg=",
         "owner": "wamserma",
         "repo": "flake-programs-sqlite",
-        "rev": "da3a76b50d1c9b972eb0c4577812978760143bf4",
+        "rev": "fc6972640713cc94e7180faee73342e598668c5c",
         "type": "github"
       },
       "original": {
@@ -941,11 +941,11 @@
         "xwayland-satellite": "xwayland-satellite"
       },
       "locked": {
-        "lastModified": 1725017036,
-        "narHash": "sha256-rp+uS0j4gKDLKSHZLD+uimAheODjMvIsvCoQoTErIwU=",
+        "lastModified": 1725027868,
+        "narHash": "sha256-BHoVvOCgCHBeP0VT0aGrnLbaOGIGhw5ayI51HwVNCJo=",
         "owner": "sodiboo",
         "repo": "niri-flake",
-        "rev": "aa0f13bf69b07028e7404841c347867d743e8129",
+        "rev": "f1328dd1e3feb3ab4eaf05a562fa507bcc2c5f75",
         "type": "github"
       },
       "original": {
@@ -1478,11 +1478,11 @@
         "parts": "parts_2"
       },
       "locked": {
-        "lastModified": 1725010420,
-        "narHash": "sha256-qCLNxAbirTvpgxbIcZnLPBnJ4h6pMvtdJlbrwL/z6FE=",
+        "lastModified": 1725045066,
+        "narHash": "sha256-I5mLZXzEoqzk9pEVmWiCS7RVfyDla0wJYe4OOGt9+9Y=",
         "ref": "refs/heads/main",
-        "rev": "0c4e98e79af5a8b55fcc9d04adbbdf5db0b8ffbf",
-        "revCount": 48,
+        "rev": "5418483b2637cb1504934c5e9824080eeb67dad7",
+        "revCount": 49,
         "type": "git",
         "url": "https://codeberg.org/amadaluzia/pankomacs.git"
       },

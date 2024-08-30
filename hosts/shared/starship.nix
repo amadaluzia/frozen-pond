@@ -12,8 +12,9 @@ in
     programs.starship = {
       enable = true;
       settings = {
-        format = "$username$directory$character";
-        right_format = "$all";
+        add_newline = false;
+        format = ''$username$directory$character'';
+        right_format = ''$all'';
         character = {
           success_symbol = "[󰇵 ](bold green)";
           error_symbol = "[󰇸 ](bold red)";
@@ -22,6 +23,7 @@ in
           show_always = true;
           disabled = false;
         };
+        line_break.disabled = true;
       };
     };
   };
