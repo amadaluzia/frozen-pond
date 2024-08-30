@@ -11,12 +11,18 @@ let
   currentCursorPackage = pkgs.simp1e-cursors;
 in
 {
-  config = mkIf (builtins.hasContext config.frozen-pond.desktop) {
+  config = mkIf (builtins.isString config.frozen-pond.desktop) {
     environment.systemPackages = [
       currentThemePackage
       currentCursorPackage
       pkgs.glib
+      pkgs.libsForQt5.qt5ct
     ];
+
+    qt = {
+      enable = true;
+      platformTheme = "qt5ct";
+    };
 
     systemd.user = {
       tmpfiles.rules =
@@ -26,7 +32,8 @@ in
         in
         [
           "L+ ${homeDir}/.config/gtk-4.0 644 - - - ${currentTheme}/gtk-4.0"
-          "L+ ${homeDir}/.config/gtk-3.0 633 - - - ${currentTheme}/gtk-3.0"
+          "L+ ${homeDir}/.config/gtk-3.0 644 - - - ${currentTheme}/gtk-3.0"
+          "L+ ${homeDir}/.config/qt5ct/colors 644 - - - ${./configs/qt5ct/colors/.}"
         ];
     };
   };

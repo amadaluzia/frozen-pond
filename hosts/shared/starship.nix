@@ -12,12 +12,16 @@ in
     programs.starship = {
       enable = true;
       settings = {
+        format = "$username$directory$character";
+        right_format = "$all";
         character = {
           success_symbol = "[󰇵 ](bold green)";
-          error_symbol = "[󰇸 ](bold green)";
+          error_symbol = "[󰇸 ](bold red)";
         };
-        format = "$username in $directory$character";
-        right_format = "$all";
+        username = {
+          show_always = true;
+          disabled = false;
+        };
       };
     };
   };
