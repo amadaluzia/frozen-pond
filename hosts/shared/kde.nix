@@ -1,12 +1,9 @@
 { config, lib, ... }:
 let
-  cfg = config.frozen-pond.kde;
-  inherit (lib) mkEnableOption mkIf;
+  inherit (lib) mkIf;
 in
 {
-  options.frozen-pond.kde = {
-    enable = mkEnableOption "kde";
+  config = mkIf (config.frozen-pond.desktop == "kde") {
+    services.desktopManager.plasma6.enable = true;
   };
-
-  config = mkIf cfg.enable { services.desktopManager.plasma6.enable = true; };
 }

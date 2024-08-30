@@ -1,14 +1,9 @@
 { config, lib, ... }:
 let
-  cfg = config.frozen-pond.cosmic;
-  inherit (lib) mkEnableOption mkIf;
+  inherit (lib) mkIf;
 in
 {
-  options.frozen-pond.cosmic = {
-    enable = mkEnableOption "cosmic";
-  };
-
-  config = mkIf cfg.enable {
+  config = mkIf (config.frozen-pond.desktop == "cosmic") {
     services.desktopManager.cosmic.enable = true;
     services.displayManager.cosmic-greeter.enable = true;
   };

@@ -6,7 +6,7 @@
   ];
 
   frozen-pond = {
-    sway.enable = true;
+    desktop = "sway";
     emacs.enable = true;
     wezterm.enable = true;
     fonts.enable = true;
@@ -23,7 +23,6 @@
     polkit.enable = true;
     virtualisation.enable = true;
     starship.enable = true;
-    qtile.enable = true;
     neovim.enable = true;
     eww.enable = true;
   };

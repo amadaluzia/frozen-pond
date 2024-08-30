@@ -6,14 +6,10 @@
   ...
 }:
 let
-  cfg = config.frozen-pond.sway;
-  inherit (lib) mkEnableOption mkIf;
+  inherit (lib) mkIf;
 in
 {
-  options.frozen-pond.sway = {
-    enable = mkEnableOption "sway";
-  };
-  config = mkIf cfg.enable {
+  config = mkIf (config.frozen-pond.desktop == "sway") {
     programs.sway = {
       enable = true;
       xwayland.enable = true;

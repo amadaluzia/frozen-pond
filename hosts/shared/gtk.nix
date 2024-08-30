@@ -6,13 +6,12 @@
   ...
 }:
 let
-  cfg = config.frozen-pond.sway;
   inherit (lib) mkIf;
   currentThemePackage = pkgs.tokyonight-gtk-theme;
   currentCursorPackage = pkgs.simp1e-cursors;
 in
 {
-  config = mkIf cfg.enable {
+  config = mkIf (builtins.hasContext config.frozen-pond.desktop) {
     environment.systemPackages = [
       currentThemePackage
       currentCursorPackage

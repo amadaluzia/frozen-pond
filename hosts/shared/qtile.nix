@@ -1,14 +1,9 @@
 { config, lib, pkgs, ... }:
 let
-  cfg = config.frozen-pond.qtile;
-  inherit (lib) mkEnableOption mkIf;
+  inherit (lib) mkIf;
 in
 {
-  options.frozen-pond.qtile = {
-    enable = mkEnableOption "qtile";
-  };
-
-  config = mkIf cfg.enable {
+  config = mkIf (config.frozen-pond.desktop == "qtile") {
     services.xserver = {
       windowManager.qtile = {
         enable = true;

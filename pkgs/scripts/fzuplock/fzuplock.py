@@ -36,9 +36,9 @@ nix_flake_update: sp.CompletedProcess = sp.run(
     stdout=sys.stdout,
 )
 
-f = Figlet(font="stop")
+f = Figlet(font="ghost")
 
 if nix_flake_update.returncode == 0:
-    print(f.renderText("Successfully updated inputs!"))
+    print(f.renderText("updated inputs!"))
 else:
     print("Something has went ary. Exiting!")
