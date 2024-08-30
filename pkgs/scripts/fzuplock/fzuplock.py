@@ -7,26 +7,6 @@ import json
 import sys
 import os
 
-
-def flatten_list(_2d_list):
-    flat_list = []
-    # Iterate through the outer list
-    for element in _2d_list:
-        if type(element) is list:
-            # If the element is of type list, iterate through the sublist
-            for item in element:
-                flat_list.append(item)
-        else:
-            flat_list.append(element)
-    return flat_list
-
-
-def add_update_input(i: str) -> list[str]:
-    return ["--update-input", i]
-
-
-os.chdir("/etc/nixos")
-
 flake_metadata_command: sp.CompletedProcess = sp.run(
     ["nix", "flake", "metadata", "--json"], capture_output=True, encoding="UTF-8"
 )
@@ -38,12 +18,16 @@ flake_inputs: list[str] = list(
 )
 
 fz: pyfzf.FzfPrompt = pyfzf.FzfPrompt()
-inputs_to_update: list[str] = map(
-    add_update_input, fz.prompt(flake_inputs, "--multi --cycle")
-)
+
+inputs_to_update = []
+for i in fz.prompt(flake_inputs, "--multi"):
+    inputs_to_update += ["--update-input", i]
+
+print(inputs_to_update)
 
 if len(list(inputs_to_update)) != 0:
-    command = flatten_list(["nix", "flake", "lock", flatten_list(inputs_to_update)])
+    command = ["nix", "flake", "lock"] + inputs_to_update
+    print()
 else:
     command = ["nix", "flake", "lock", "--recreate-lock-file"]
 
