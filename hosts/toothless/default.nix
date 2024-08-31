@@ -25,6 +25,8 @@
     starship.enable = true;
     neovim.enable = true;
     eww.enable = true;
+    qutebrowser.enable = true;
+    misc.sudo_prompt = true;
   };
 
   networking = {

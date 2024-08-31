@@ -10,7 +10,7 @@
           "cosmic"
         ]
       );
-      default = "sway";
+      default = null;
       description = "Selects the GUI environment to use.";
     };
   };
@@ -40,5 +40,7 @@
     ./eww.nix
     ./aliases.nix
     ./gtk.nix
+    ./qutebrowser.nix
+    ./misc.nix
   ];
 }
