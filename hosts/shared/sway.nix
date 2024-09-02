@@ -10,17 +10,16 @@ let
 in
 {
   config = mkIf (config.frozen-pond.desktop == "sway") {
+    frozen-pond = {
+      misc.wayland = true;
+      waybar.enable = true;
+      fuzzel.enable = true;
+    };
+
     programs.sway = {
       enable = true;
       xwayland.enable = true;
       wrapperFeatures.gtk = true;
-      extraPackages = [
-        pkgs.wezterm
-        pkgs.swaybg
-        pkgs.fuzzel
-        pkgs.pamixer
-        pkgs.sway-contrib.grimshot
-      ];
     };
 
     xdg.portal = {
@@ -35,21 +34,15 @@ in
       };
     };
 
-    programs.waybar.enable = true;
-    programs.dconf.enable = true;
 
     systemd.user = {
       tmpfiles.rules =
         let
           homeDir = "/home/${username}";
           configDir = ./. + "/configs";
-          wallpaper = "${../../wallpapers + "/ChainsawMan.png"}";
         in
         [
           "L+ ${homeDir}/.config/sway 0644 - - - ${configDir}/sway"
-          "L+ ${homeDir}/.config/fuzzel 0644 - - - ${configDir}/fuzzel"
-          "L+ ${homeDir}/.config/waybar 0644 - - - ${configDir}/waybar"
-          "L+ /tmp/wallpaper 644 - - - ${wallpaper}"
         ];
       targets.sway-session = {
         description = "sway compositor session";

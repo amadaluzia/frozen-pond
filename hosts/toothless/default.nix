@@ -6,7 +6,7 @@
   ];
 
   frozen-pond = {
-    desktop = "sway";
+    desktop = "niri";
     emacs.enable = true;
     wezterm.enable = true;
     fonts.enable = true;
@@ -19,7 +19,7 @@
       disko = true;
     };
     pipewire.enable = true;
-    # vesktop.enable = true;
+    vesktop.enable = true;
     polkit.enable = true;
     virtualisation.enable = true;
     starship.enable = true;

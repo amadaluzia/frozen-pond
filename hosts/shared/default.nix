@@ -8,11 +8,20 @@
           "sway"
           "qtile"
           "cosmic"
+          "niri"
         ]
       );
       default = null;
       description = "Selects the GUI environment to use.";
     };
+  };
+
+  config = {
+    systemd.tmpfiles.rules = let
+      wallpaper = "${../../wallpapers + "/ChainsawMan.png"}";
+    in [
+      "L+ /tmp/wallpaper 0644 - - - ${wallpaper}"
+    ];
   };
 
   imports = [
@@ -42,5 +51,7 @@
     ./gtk.nix
     ./qutebrowser.nix
     ./misc.nix
+    ./waybar.nix
+    ./fuzzel.nix
   ];
 }
