@@ -18,13 +18,12 @@ in
       enable = true;
       package = pkgs.niri-stable;
     };
-    environment.sessionVariables.NIXOS_OZONE_WL = "1";
     xdg.portal = {
       enable = true;
       wlr.enable = true;
       extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-gnome ];
       config = {
-        common.default = [
+        niri.default = [
           "gnome"
           "gtk"
         ];

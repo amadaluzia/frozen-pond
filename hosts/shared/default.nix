@@ -18,7 +18,7 @@
 
   config = {
     systemd.tmpfiles.rules = let
-      wallpaper = "${../../wallpapers + "/ChainsawMan.png"}";
+      wallpaper = "${../../wallpapers + "/Flowers.jpg"}";
     in [
       "L+ /tmp/wallpaper 0644 - - - ${wallpaper}"
     ];
