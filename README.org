@@ -34,3 +34,5 @@ shoutouts to [[https://codeberg.org/midirhee12][midirhee12]] for the xontribs
 shoutouts to [[https://github.com/kzndotsh][kaizen]] for her fuzzel config
 
 shoutouts to [[https://github.com/arthsmn][arthsmn]] for tidbits of their emacs config that i use
+
+shoutouts to [[https://github.com/yalter][YaLTeR]] for tidbits of their waybar config that i use

@@ -1,79 +1,52 @@
 {
-  "height": 0,
-  "position": "bottom",
+  "position": "top",
+  "layer": "top",
+  "height": 40,
   "modules-left": [
     "custom/icon",
-	  "sway/workspaces"
-  ],
-  "modules-center": [
-	  "sway/window"
+    "wlr/taskbar"
   ],
   "modules-right": [
-	  "network",
-	  "memory",
+    "pulseaudio",
+    "memory",
+    "network",
     "disk",
-	  "wireplumber",
-	  "tray",
-	  "clock"
+    "clock",
+    "custom/logout"
   ],
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "tooltip-format": "{title} | {app_id}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "on-click-right": "fullscreen"
+  },
   "custom/icon": {
     "format": "",
-    "on-click": "fuzzel",
-    "tooltip": false
-  },
-  "sway/window": {
-	  "max-length": 40
-  },
-  "wireplumber": {
-    "format": "{icon} {volume}",
-    "tooltip": false,
-    "format-muted": " Muted",
-    "on-click": "pamixer -t",
-    "on-click-right": "pavucontrol",
-    "on-scroll-up": "pamixer -i 5",
-    "on-scroll-down": "pamixer -d 5",
-    "scroll-step": 5,
-    "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": ["", "", ""]
-    }
-  },
-  "wireplumber#microphone": {
-    "format": "{format_source}",
-    "format-source": " {volume}%",
-    "format-source-muted": " Muted",
-    "on-click": "pamixer --default-source -t",
-    "on-scroll-up": "pamixer --default-source -i 5",
-    "on-scroll-down": "pamixer --default-source -d 5",
-    "scroll-step": 5
-  }, 
-  "memory": {
-    "interval": 30,
-    "format": "RAM {}%",
-    "max-length": 10,
-    "tooltip": true,
-    "tooltip-format": "Memory - {used:0.1f}GB used",
-    "on-click": "wezterm -e btop"
-  },
-  "network": {
-    // "interface": "wlp2*", // (Optional) To force the use of this interface
-    "format-wifi": " {signalStrength}%",
-    "format-ethernet": "󰈀 {ipaddr}/{cidr}",
-    "tooltip-format": "󰈀 {essid} - {ifname} via {gwaddr}",
-    "format-linked": " {ifname} (No IP)",
-    "format-disconnected": "󱘖 ",
-    "format-alt": "{ifname}:{essid} {ipaddr}/{cidr}",
-    "on-click-right": "wezterm -e nmtui"
+    "on-click": "fuzzel"
   },
   "disk": {
-      "interval": 30,
-      "format": " {specific_used:0.1f}GB/{specific_total:0.1f}GB ({path})",
-      "path": "/",
-      "unit": "GB"
+    "format": " {used}/{total}",
+  },
+  "clock": {
+    "format": "{:%H:%M}",
+    "interval": 7
+  },
+  "memory": {
+    "format": " {used}GB/{total}GB",
+    "interval": 12
+  },
+  "network": {
+    "format": "󰈀 {ifname}",
+    "format-disconnected": "",
+    "tooltip-format": "󰈀 {ifname} via {gwaddr}"
+  },
+  "pulseaudio": {
+    "format": "󰕾 {volume}%"
+  },
+  "custom/logout": {
+    "format": "󰐥",
+    "tooltip": false,
+    "on-click": "niri msg action quit"
   }
 }

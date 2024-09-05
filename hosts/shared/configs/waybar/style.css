@@ -1,64 +1,58 @@
-@import "./includes/tokyonight.css";
-
 * {
-  font-size: 17px;
+  font-family: "monospace";
+  font-size: 18px;
 }
 
 window#waybar {
-  background: @bg;
-  color: @fg;
+  background: #161616;
+  color: #ffffff;
 }
 
+#custom-icon,
+#custom-logout {
+  padding: 12px;
+}
+
+#pulseaudio,
+#clock,
+#disk,
 #network,
 #memory,
-#disk,
-#wireplumber,
-#tray,
-#clock,
-#custom-icon {
+#taskbar {
   padding: 0 10px;
-  color: @black;
 }
 
-#custom-icon {
-  background: @cyan;
+#pulseaudio,
+#wireplumber {
+  background: #82cfff;
+  color: #262626;
 }
 
 #network {
-  background: @red;
+  background: #3ddbd9;
+  color: #262626;
 }
 
-#memory {
-  background: @yellow;
-}
-
-#disk {
-  background: @green;
-}
-
-#wireplumber {
-  background: @blue;
-}
-
-#tray {
-  background: @black;
+#custom-icon {
+  background: #78a9ff;
+  color: #262626;
 }
 
 #clock {
-  background: @magenta;
+  background: #ee5396;
+  color: #262626;
 }
 
-#workspaces {
-  animation-duration: 0s;
+#disk {
+  background: #be95ff;
+  color: #262626;
 }
 
-#workspaces button {
-  color: @fg;
-  padding: 3px 0;
-  border: 0px;
-  border-radius: 0px;
+#memory {
+  background: #33b1ff;
+  color: #262626;
 }
 
-#workspaces button.focused {
-  color: @cyan;
+#custom-logout {
+  color: #ee5396;
 }
