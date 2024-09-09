@@ -21,6 +21,7 @@
     };
     niri.url = "github:sodiboo/niri-flake";
     f2k.url = "github:moni-dz/nixpkgs-f2k";
+    gtk.url = "github:the-argus/gtk-nix";
   };
 
   outputs =

@@ -7,6 +7,7 @@ in
   options.frozen-pond.misc = {
     sudo_prompt = mkEnableOption "sudo prompt";
     wayland = mkEnableOption "wayland";
+    xorg = mkEnableOption "xorg";
   };
 
   config = lib.mkMerge [
@@ -29,6 +30,18 @@ in
         QT_QPA_PLATFORM = "wayland";
       };
       programs.dconf.enable = true;
+    })
+    (mkIf cfg.xorg {
+      services.xserver = {
+        enable = true;
+        displayManager.sx.enable = true;
+      };
+      environment.systemPackages = [
+        pkgs.maim
+        pkgs.slop
+        pkgs.xclip
+        pkgs.vokoscreen-ng
+      ];
     })
   ];
 }

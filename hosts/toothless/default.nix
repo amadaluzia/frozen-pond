@@ -19,7 +19,7 @@
       disko = true;
     };
     pipewire.enable = true;
-    vesktop.enable = true;
+    socials.element = true;
     polkit.enable = true;
     virtualisation.enable = true;
     starship.enable = true;

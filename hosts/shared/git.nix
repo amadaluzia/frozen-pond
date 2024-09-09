@@ -29,7 +29,7 @@ in
     };
 
     systemd.user.tmpfiles.rules = [
-      "L+ /home/${username}/.gitconfig - - - - ${./. + "/configs/git/gitconfig"}"
+      "L+ /home/${username}/.gitconfig - - - - ${./configs/git/gitconfig}"
     ];
   };
 }

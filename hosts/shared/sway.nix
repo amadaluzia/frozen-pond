@@ -14,6 +14,7 @@ in
       misc.wayland = true;
       waybar.enable = true;
       fuzzel.enable = true;
+      mako.enable = true;
     };
 
     programs.sway = {
@@ -39,10 +40,9 @@ in
       tmpfiles.rules =
         let
           homeDir = "/home/${username}";
-          configDir = ./. + "/configs";
         in
         [
-          "L+ ${homeDir}/.config/sway 0644 - - - ${configDir}/sway"
+          "L+ ${homeDir}/.config/sway 0644 - - - ${./configs/sway}"
         ];
       targets.sway-session = {
         description = "sway compositor session";

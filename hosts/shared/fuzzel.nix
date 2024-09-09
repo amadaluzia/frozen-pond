@@ -16,10 +16,9 @@ in
       tmpfiles.rules =
         let
           homeDir = "/home/${username}";
-          configDir = ./. + "/configs";
         in
         [
-          "L+ ${homeDir}/.config/fuzzel 0644 - - - ${configDir}/waybar"
+          "L+ ${homeDir}/.config/fuzzel 0644 - - - ${./configs/fuzzel}"
         ];
       };
   };

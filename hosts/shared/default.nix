@@ -34,7 +34,7 @@
     ./git.nix
     ./chromium.nix
     ./emacs.nix
-    ./vesktop.nix
+    ./socials.nix
     ./wezterm.nix
     ./gpg.nix
     ./direnv.nix
@@ -53,5 +53,6 @@
     ./misc.nix
     ./waybar.nix
     ./fuzzel.nix
+    ./mako.nix
   ];
 }

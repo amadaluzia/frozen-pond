@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 let
@@ -9,14 +8,13 @@ let
 in
 {
   config = mkIf (config.frozen-pond.desktop == "qtile") {
+    frozen-pond.misc.xorg.enable = true;
     services.xserver = {
       windowManager.qtile = {
         enable = true;
         extraPackages = python3Packages: builtins.attrValues { inherit (python3Packages) qtile-extras; };
       };
-      displayManager.sx.enable = true;
       enable = true;
     };
-    environment.systemPackages = builtins.attrValues { inherit (pkgs) maim slop; };
   };
 }

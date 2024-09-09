@@ -1,6 +1,7 @@
 * {
+  all: unset;
   font-family: "monospace";
-  font-size: 18px;
+  font-size: 16px;
 }
 
 window#waybar {
@@ -8,18 +9,36 @@ window#waybar {
   color: #ffffff;
 }
 
+tooltip {
+  background: #161616;
+  color: #ffffff;
+  border-radius: 0;
+}
+
 #custom-icon,
 #custom-logout {
-  padding: 12px;
+  padding: 0 12px;
+}
+
+#taskbar button {
+  padding: 0 8px;
+}
+
+#taskbar button:hover {
+  animation: 0s;
+  background: #262626;
+  padding: 0 8px;
+  border-radius: 0;
+  border: 0;
+  box-shadow: none;
 }
 
 #pulseaudio,
 #clock,
 #disk,
 #network,
-#memory,
-#taskbar {
-  padding: 0 10px;
+#memory {
+  padding: 0 9px;
 }
 
 #pulseaudio,

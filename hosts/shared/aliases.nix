@@ -1,6 +1,6 @@
 { hostname, ... }:
 {
   environment.shellAliases = {
-    "rebs" = "sudo nixos-rebuild switch --flake /etc/nixos#${hostname}";
+    "rebs" = "nixos-rebuild switch --use-remote-sudo --flake /etc/nixos#${hostname}";
   };
 }

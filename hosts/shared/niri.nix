@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  username,
   ...
 }:
 let
@@ -12,7 +13,9 @@ in
   config = mkIf (cfg.desktop == "niri") {
     frozen-pond = {
       misc.wayland = true;
+      waybar.enable = true;
       fuzzel.enable = true;
+      mako.enable = true;
     };
     programs.niri = {
       enable = true;
@@ -29,5 +32,8 @@ in
         ];
       };
     };
+    systemd.user.tmpfiles.rules = [
+      "L+ /home/${username}/.config/niri - - - - ${./configs/niri}"
+    ];
   };
 }

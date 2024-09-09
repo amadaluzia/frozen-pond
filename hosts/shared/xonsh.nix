@@ -19,7 +19,7 @@
     };
 
     systemd.user.tmpfiles.rules = [
-      "L+ /home/${username}/.xonshrc - - - - ${./. + "/configs/xonshrc"}"
+      "L+ /home/${username}/.xonshrc - - - - ${./configs/xonshrc}"
     ];
 
     environment.systemPackages = [

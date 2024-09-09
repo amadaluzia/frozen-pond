@@ -9,7 +9,7 @@ xontribs_load([
 ])
 
 hostname = $HOSTNAME
-aliases["rebs"] = f"sudo nixos-rebuild switch --flake /etc/nixos#{hostname}"
+aliases["rebs"] = f"nixos-rebuild switch --use-remote-sudo --flake /etc/nixos#{hostname}"
 
 eza_options = "--group-directories-first --colour=always --colour-scale-mode=fixed --icons=auto --header --inode --git"
 
