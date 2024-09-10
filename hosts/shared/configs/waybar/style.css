@@ -1,3 +1,5 @@
+@import "includes/oxocarbon.css";
+
 * {
   all: unset;
   font-family: "monospace";
@@ -5,13 +7,13 @@
 }
 
 window#waybar {
-  background: #161616;
-  color: #ffffff;
+  background: @base00;
+  color: @base05;
 }
 
 tooltip {
-  background: #161616;
-  color: #ffffff;
+  background: @base00;
+  color: @base05;
   border-radius: 0;
 }
 
@@ -29,7 +31,7 @@ tooltip {
 
 #taskbar button:hover {
   animation: 0s;
-  background: #262626;
+  background: @base01;
   padding: 0 8px;
   border-radius: 0;
   border: 0;
@@ -37,6 +39,7 @@ tooltip {
 }
 
 #pulseaudio,
+#wireplumber,
 #clock,
 #disk,
 #network,
@@ -44,37 +47,39 @@ tooltip {
   padding: 0 9px;
 }
 
+#custom-icon {
+  background: #78a9ff;
+  color: @base01;
+}
+
 #pulseaudio,
 #wireplumber {
-  background: #82cfff;
-  color: #262626;
+  background: @base08;
+  color: @base01;
 }
 
 #network {
-  background: #3ddbd9;
-  color: #262626;
+  background: @base0B;
+  color: @base01;
 }
 
-#custom-icon {
-  background: #78a9ff;
-  color: #262626;
-}
 
 #clock {
-  background: #ee5396;
-  color: #262626;
+  background: @base0C;
+  color: @base01;
 }
 
 #disk {
-  background: #be95ff;
-  color: #262626;
+  background: @base0E;
+  color: @base01;
 }
 
 #memory {
-  background: #33b1ff;
-  color: #262626;
+  background: @base0F;
+  color: @base01;
 }
 
 #custom-logout {
-  color: #ee5396;
+  background: @base0A;
+  color: @base01;
 }
