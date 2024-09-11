@@ -26,7 +26,16 @@
     neovim.enable = true;
     eww.enable = true;
     qutebrowser.enable = true;
+    nyxt.enable = true;
     misc.sudo_prompt = true;
+  };
+
+  xdg.mime.defaultApplications = {
+    "text/html" = [
+      "nyxt.desktop"
+      "org.qutebrowser.qutebrowser.desktop"
+      "chromium-browser.desktop"
+    ];
   };
 
   networking = {

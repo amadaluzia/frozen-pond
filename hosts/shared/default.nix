@@ -54,5 +54,6 @@
     ./waybar.nix
     ./fuzzel.nix
     ./mako.nix
+    ./nyxt.nix
   ];
 }
