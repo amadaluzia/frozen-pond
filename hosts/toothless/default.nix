@@ -32,8 +32,8 @@
 
   xdg.mime.defaultApplications = {
     "text/html" = [
-      "nyxt.desktop"
       "org.qutebrowser.qutebrowser.desktop"
+      "nyxt.desktop"
       "chromium-browser.desktop"
     ];
   };
