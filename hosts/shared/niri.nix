@@ -3,6 +3,7 @@
   config,
   pkgs,
   username,
+  inputs,
   ...
 }:
 let
@@ -10,6 +11,9 @@ let
   inherit (lib) mkIf;
 in
 {
+  imports = [
+    inputs.niri.nixosModules.niri
+  ];
   config = mkIf (cfg.desktop == "niri") {
     frozen-pond = {
       misc.wayland = true;

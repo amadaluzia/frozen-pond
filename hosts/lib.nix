@@ -14,8 +14,6 @@
       modules = extraModules ++ [
         ./${hostname}
         ./shared
-        inputs.cosmic.nixosModules.default
-        inputs.niri.nixosModules.niri
         {
           config = {
             nixpkgs = {
