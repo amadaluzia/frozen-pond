@@ -19,7 +19,7 @@
       url = "github:AdisonCavani/distro-grub-themes";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    niri.url = "github:sodiboo/niri-flake";
+    niri.url = "github:amadalusia/niri-flake/nullable-package";
     f2k.url = "github:moni-dz/nixpkgs-f2k";
     gtk.url = "github:the-argus/gtk-nix";
     wm = {

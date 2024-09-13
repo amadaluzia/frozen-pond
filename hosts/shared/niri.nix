@@ -2,7 +2,6 @@
   lib,
   config,
   pkgs,
-  username,
   inputs,
   ...
 }:
@@ -18,25 +17,11 @@ in
       waybar.enable = true;
       fuzzel.enable = true;
       mako.enable = true;
+      wrappers = [ "niri" ];
     };
     programs.niri = {
       enable = true;
-      package = pkgs.niri-stable;
+      package = inputs.niri.packages.${pkgs.system}.niri-unstable;
     };
-    xdg.portal = {
-      enable = true;
-      wlr.enable = true;
-      extraPortals = [
-        pkgs.xdg-desktop-portal-gtk
-        pkgs.xdg-desktop-portal-gnome
-      ];
-      config = {
-        niri.default = [
-          "gnome"
-          "gtk"
-        ];
-      };
-    };
-    systemd.user.tmpfiles.rules = [ "L+ /home/${username}/.config/niri - - - - ${./configs/niri}" ];
   };
 }
