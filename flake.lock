@@ -963,7 +963,8 @@
         "nixstart": "nixstart",
         "pankomacs": "pankomacs",
         "treefmt-nix": "treefmt-nix_2",
-        "whyfetch": "whyfetch"
+        "whyfetch": "whyfetch",
+        "wm": "wm"
       }
     },
     "rust-analyzer-src": {
@@ -1218,6 +1219,26 @@
       "original": {
         "type": "git",
         "url": "https://codeberg.org/amadaluzia/whyfetch.git"
+      }
+    },
+    "wm": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1724503599,
+        "narHash": "sha256-WVhNq3QjnG/2mi772CkTxZCQcomKV5S03TbQKwe1Kj4=",
+        "owner": "viperml",
+        "repo": "wrapper-manager",
+        "rev": "c936f9203217e654a6074d206505c16432edbc70",
+        "type": "github"
+      },
+      "original": {
+        "owner": "viperml",
+        "repo": "wrapper-manager",
+        "type": "github"
       }
     },
     "xwayland-satellite-stable": {
