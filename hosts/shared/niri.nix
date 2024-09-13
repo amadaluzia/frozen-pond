@@ -11,9 +11,7 @@ let
   inherit (lib) mkIf;
 in
 {
-  imports = [
-    inputs.niri.nixosModules.niri
-  ];
+  imports = [ inputs.niri.nixosModules.niri ];
   config = mkIf (cfg.desktop == "niri") {
     frozen-pond = {
       misc.wayland = true;
@@ -28,7 +26,10 @@ in
     xdg.portal = {
       enable = true;
       wlr.enable = true;
-      extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-gnome ];
+      extraPortals = [
+        pkgs.xdg-desktop-portal-gtk
+        pkgs.xdg-desktop-portal-gnome
+      ];
       config = {
         niri.default = [
           "gnome"
@@ -36,8 +37,6 @@ in
         ];
       };
     };
-    systemd.user.tmpfiles.rules = [
-      "L+ /home/${username}/.config/niri - - - - ${./configs/niri}"
-    ];
+    systemd.user.tmpfiles.rules = [ "L+ /home/${username}/.config/niri - - - - ${./configs/niri}" ];
   };
 }

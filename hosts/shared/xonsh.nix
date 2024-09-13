@@ -18,9 +18,7 @@
       };
     };
 
-    systemd.user.tmpfiles.rules = [
-      "L+ /home/${username}/.xonshrc - - - - ${./configs/xonshrc}"
-    ];
+    systemd.user.tmpfiles.rules = [ "L+ /home/${username}/.xonshrc - - - - ${./configs/xonshrc}" ];
 
     environment.systemPackages = [
       config.programs.starship.package

@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.frozen-pond.qutebrowser;
 in
@@ -7,9 +12,5 @@ in
     enable = lib.mkEnableOption "qutebrowser";
   };
 
-  config = lib.mkIf cfg.enable {
-    environment.systemPackages = [
-      pkgs.qutebrowser
-    ];
-  };
+  config = lib.mkIf cfg.enable { environment.systemPackages = [ pkgs.qutebrowser ]; };
 }

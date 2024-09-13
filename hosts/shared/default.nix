@@ -17,11 +17,11 @@
   };
 
   config = {
-    systemd.tmpfiles.rules = let
-      wallpaper = "${../../wallpapers + "/Flowers.jpg"}";
-    in [
-      "L+ /tmp/wallpaper 0644 - - - ${wallpaper}"
-    ];
+    systemd.tmpfiles.rules =
+      let
+        wallpaper = "${../../wallpapers + "/oxocarbon.png"}";
+      in
+      [ "L+ /tmp/wallpaper 0644 - - - ${wallpaper}" ];
   };
 
   imports = [

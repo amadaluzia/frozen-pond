@@ -35,15 +35,12 @@ in
       };
     };
 
-
     systemd.user = {
       tmpfiles.rules =
         let
           homeDir = "/home/${username}";
         in
-        [
-          "L+ ${homeDir}/.config/sway 0644 - - - ${./configs/sway}"
-        ];
+        [ "L+ ${homeDir}/.config/sway 0644 - - - ${./configs/sway}" ];
       targets.sway-session = {
         description = "sway compositor session";
         documentation = [ "man:systemd.special(7)" ];
