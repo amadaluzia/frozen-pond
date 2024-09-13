@@ -1,12 +1,9 @@
 {
   config,
   lib,
-  pkgs,
-  username,
   ...
 }:
 let
-  homeDir = "/home/${username}";
   cfg = config.frozen-pond.wezterm;
   inherit (lib) mkEnableOption mkIf;
 in
@@ -16,8 +13,8 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [ pkgs.wezterm ];
-
-    systemd.user.tmpfiles.rules = [ "L+ ${homeDir}/.config/wezterm 0644 - - - ${./configs/wezterm}" ];
+    # environment.systemPackages = [ pkgs.wezterm ];
+    # systemd.user.tmpfiles.rules = [ "L+ ${homeDir}/.config/wezterm 0644 - - - ${./configs/wezterm}" ];
+    frozen-pond.wrappers = [ "wezterm" ];
   };
 }

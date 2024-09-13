@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, config, inputs, pkgs, ... }:
 {
   options.frozen-pond = {
     desktop = lib.mkOption {
@@ -14,15 +14,31 @@
       default = null;
       description = "Selects the GUI environment to use.";
     };
+    wrappers = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      default = [];
+      description = "wrapper manager opts to enable";
+    };
   };
 
-  config = {
-    systemd.tmpfiles.rules =
-      let
-        wallpaper = "${../../wallpapers + "/oxocarbon.png"}";
-      in
-      [ "L+ /tmp/wallpaper 0644 - - - ${wallpaper}" ];
-  };
+  config = lib.mkMerge [
+    {
+      systemd.tmpfiles.rules =
+        let
+          wallpaper = "${../../wallpapers + "/oxocarbon.png"}";
+        in
+        [ "L+ /tmp/wallpaper 0644 - - - ${wallpaper}" ];
+    }
+    (lib.mkIf (config.frozen-pond.wrappers != []) {
+      environment.systemPackages = [
+        (inputs.wm.lib.build {
+          inherit pkgs;
+          specialArgs = { inherit inputs; };
+          modules = builtins.map (n: ../../wrappers/${n}) config.frozen-pond.wrappers;
+        })
+      ];
+    })
+  ];
 
   imports = [
     ./fonts.nix
