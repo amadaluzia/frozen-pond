@@ -26,6 +26,7 @@
       url = "github:viperml/wrapper-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    waybar.url = "github:Alexays/waybar/master";
   };
 
   outputs =

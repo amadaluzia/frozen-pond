@@ -1,0 +1,100 @@
+{ pkgs, inputs, ... }:
+let
+  styleCss = pkgs.writeText "style.css" ''
+    @import "${./includes/oxocarbon.css}";
+    
+    * {
+      all: unset;
+      font-family: "monospace";
+      font-size: 17px;
+    }
+    
+    window#waybar {
+      background: @base00;
+      color: @base05;
+    }
+    
+    tooltip {
+      background: @base00;
+      color: @base05;
+      border-radius: 0;
+    }
+    
+    #custom-logout {
+      padding: 0 12px;
+    }
+    
+    #custom-icon {
+      padding: 0 10px;
+    }
+    
+    #taskbar button {
+      padding: 0 8px;
+    }
+    
+    #taskbar button:hover {
+      animation: 0s;
+      background: @base01;
+      padding: 0 8px;
+      border-radius: 0;
+      border: 0;
+      box-shadow: none;
+    }
+    
+    #pulseaudio,
+    #wireplumber,
+    #clock,
+    #disk,
+    #network,
+    #memory {
+      padding: 0 9px;
+    }
+    
+    #custom-icon {
+      background: #78a9ff;
+      color: @base01;
+    }
+    
+    #pulseaudio,
+    #wireplumber {
+      background: @base08;
+      color: @base01;
+    }
+    
+    #network {
+      background: @base0B;
+      color: @base01;
+    }
+    
+    #clock {
+      background: @base0C;
+      color: @base01;
+    }
+    
+    #disk {
+      background: @base0E;
+      color: @base01;
+    }
+    
+    #memory {
+      background: @base0F;
+      color: @base01;
+    }
+    
+    #custom-logout {
+      background: @base0A;
+      color: @base01;
+    }
+  '';
+in
+{
+  wrappers.waybar = {
+    basePackage = inputs.waybar.packages.${pkgs.system}.waybar;
+    flags = [
+      "--config"
+      ./config.jsonc
+      "--style"
+      styleCss
+    ];
+  };
+}

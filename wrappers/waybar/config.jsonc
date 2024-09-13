@@ -4,7 +4,7 @@
   "height": 36,
   "modules-left": [
     "custom/icon",
-    "wlr/taskbar"
+    "niri/window"
   ],
   "modules-right": [
     "pulseaudio",

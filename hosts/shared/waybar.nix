@@ -1,5 +1,4 @@
 {
-  username,
   lib,
   config,
   ...
@@ -14,13 +13,14 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.waybar.enable = true;
-    systemd.user = {
-      tmpfiles.rules =
-        let
-          homeDir = "/home/${username}";
-        in
-        [ "L+ ${homeDir}/.config/waybar 0644 - - - ${./configs/waybar}" ];
-    };
+    # programs.waybar.enable = true;
+    # systemd.user = {
+    #   tmpfiles.rules =
+    #     let
+    #       homeDir = "/home/${username}";
+    #     in
+    #     [ "L+ ${homeDir}/.config/waybar 0644 - - - ${./configs/waybar}" ];
+    # };
+    frozen-pond.wrappers = [ "waybar" ];
   };
 }
