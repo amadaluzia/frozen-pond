@@ -2,7 +2,6 @@
   config,
   inputs,
   pkgs,
-  username,
   ...
 }:
 {
@@ -14,11 +13,9 @@
       };
       xonsh = {
         enable = true;
-        package = pkgs.myxonsh;
+        package = inputs.self.packages.${pkgs.system}.xonsh-wrapped;
       };
     };
-
-    systemd.user.tmpfiles.rules = [ "L+ /home/${username}/.xonshrc - - - - ${./configs/xonshrc}" ];
 
     environment.systemPackages = [
       config.programs.starship.package
