@@ -40,7 +40,7 @@ in
         enableCryptodisk = true;
         efiInstallAsRemovable = true;
         inherit theme;
-        splashImage = "${theme}/splash_image.png";
+        splashImage = "${theme}/splash_image.jpg";
       };
     };
   };
