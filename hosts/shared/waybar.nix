@@ -1,8 +1,4 @@
-{
-  lib,
-  config,
-  ...
-}:
+{ lib, config, inputs, pkgs, ... }:
 let
   cfg = config.frozen-pond.waybar;
   inherit (lib) mkEnableOption mkIf;
@@ -13,14 +9,9 @@ in
   };
 
   config = mkIf cfg.enable {
-    # programs.waybar.enable = true;
-    # systemd.user = {
-    #   tmpfiles.rules =
-    #     let
-    #       homeDir = "/home/${username}";
-    #     in
-    #     [ "L+ ${homeDir}/.config/waybar 0644 - - - ${./configs/waybar}" ];
-    # };
-    frozen-pond.wrappers = [ "waybar" ];
+    programs.waybar = {
+      enable = true;
+      package = inputs.self.packages.${pkgs.system}.waybar-wrapped;
+    };
   };
 }

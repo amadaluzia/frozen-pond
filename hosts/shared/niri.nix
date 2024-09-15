@@ -7,21 +7,19 @@
 }:
 let
   cfg = config.frozen-pond;
-  inherit (lib) mkIf;
 in
 {
   imports = [ inputs.niri.nixosModules.niri ];
-  config = mkIf (cfg.desktop == "niri") {
+  config = lib.mkIf (cfg.desktop == "niri") {
     frozen-pond = {
-      misc.wayland = true;
-      waybar.enable = true;
       fuzzel.enable = true;
       mako.enable = true;
-      wrappers = [ "niri" ];
+      waybar.enable = true;
+      misc.wayland = true;
     };
     programs.niri = {
       enable = true;
-      package = inputs.niri.packages.${pkgs.system}.niri-unstable;
+      package = inputs.self.packages.${pkgs.system}.niri-wrapped;
     };
   };
 }

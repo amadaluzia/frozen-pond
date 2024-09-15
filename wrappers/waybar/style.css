@@ -25,25 +25,14 @@ tooltip {
   padding: 0 10px;
 }
 
-#taskbar button {
-  padding: 0 8px;
-}
-
-#taskbar button:hover {
-  animation: 0s;
-  background: @base01;
-  padding: 0 8px;
-  border-radius: 0;
-  border: 0;
-  box-shadow: none;
-}
 
 #pulseaudio,
 #wireplumber,
 #clock,
 #disk,
 #network,
-#memory {
+#memory,
+#window {
   padding: 0 9px;
 }
 

@@ -1,22 +1,20 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 let
   niri-dconf-script = pkgs.writeShellApplication {
     name = "niri-dconf-script.sh";
-    runtimeInputs = [
-      pkgs.dconf
-    ];
+    runtimeInputs = [ pkgs.dconf ];
     text = builtins.readFile ./scripts/dconf.sh;
   };
+  basePackage = pkgs.niri-stable;
 in
 {
   wrappers.niri = {
-    basePackage = inputs.niri.packages.${pkgs.system}.niri-unstable;
-    env.NIRI_CONFIG = {
-      value = ./config.kdl;
-      force = true;
-    };
-    pathAdd = [
-      niri-dconf-script
+    inherit basePackage;
+    flags = [
+      "--session"
+      "--config"
+      ./config.kdl
     ];
+    pathAdd = [ niri-dconf-script ];
   };
 }
