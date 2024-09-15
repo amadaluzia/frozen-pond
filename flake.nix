@@ -56,17 +56,17 @@
       packages = forAllSystems (
         { pkgs }:
         (import ./pkgs pkgs)
-        // pkgs.lib.concatMapAttrs (n: v: {
-          "${n}-wrapped" = v;
-        }) (inputs.wm.lib {
-          pkgs = pkgs;
-          specialArgs = {
-            inherit inputs;
-          };
-          modules = map (n: ./wrappers/${n}) (
-            builtins.attrNames (pkgs.lib.filterAttrs (_: v: v == "directory") (builtins.readDir ./wrappers))
-          );
-        }).config.build.packages
+        //
+          pkgs.lib.concatMapAttrs (n: v: { "${n}-wrapped" = v; })
+            (inputs.wm.lib {
+              pkgs = pkgs;
+              specialArgs = {
+                inherit inputs;
+              };
+              modules = map (n: ./wrappers/${n}) (
+                builtins.attrNames (pkgs.lib.filterAttrs (_: v: v == "directory") (builtins.readDir ./wrappers))
+              );
+            }).config.build.packages
       );
       devShells = forAllSystems (
         { pkgs }:

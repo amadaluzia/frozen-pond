@@ -1,4 +1,10 @@
-{ config, lib, inputs, pkgs, ... }:
+{
+  config,
+  lib,
+  inputs,
+  pkgs,
+  ...
+}:
 let
   cfg = config.frozen-pond.wezterm;
   inherit (lib) mkEnableOption mkIf;

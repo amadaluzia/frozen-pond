@@ -2,33 +2,33 @@
 let
   styleCss = pkgs.writeText "style.css" ''
     @import "${./includes/oxocarbon.css}";
-    
+
     * {
       all: unset;
       font-family: "monospace";
       font-size: 17px;
     }
-    
+
     window#waybar {
       background: @base00;
       color: @base05;
     }
-    
+
     tooltip {
       background: @base00;
       color: @base05;
       border-radius: 0;
     }
-    
+
     #custom-logout {
       padding: 0 12px;
     }
-    
+
     #custom-icon {
       padding: 0 10px;
     }
-    
-    
+
+
     #pulseaudio,
     #wireplumber,
     #clock,
@@ -38,38 +38,38 @@ let
     #window {
       padding: 0 9px;
     }
-    
+
     #custom-icon {
       background: #78a9ff;
       color: @base01;
     }
-    
+
     #pulseaudio,
     #wireplumber {
       background: @base08;
       color: @base01;
     }
-    
+
     #network {
       background: @base0B;
       color: @base01;
     }
-    
+
     #clock {
       background: @base0C;
       color: @base01;
     }
-    
+
     #disk {
       background: @base0E;
       color: @base01;
     }
-    
+
     #memory {
       background: @base0F;
       color: @base01;
     }
-    
+
     #custom-logout {
       background: @base0A;
       color: @base01;

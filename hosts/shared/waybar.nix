@@ -1,4 +1,10 @@
-{ lib, config, inputs, pkgs, ... }:
+{
+  lib,
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
 let
   cfg = config.frozen-pond.waybar;
   inherit (lib) mkEnableOption mkIf;
