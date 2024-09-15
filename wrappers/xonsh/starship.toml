@@ -1,0 +1,14 @@
+add_newline = false
+format = "$username$directory$character"
+right_format = "$all"
+
+[character]
+error_symbol = "[󰇸 ](bold red)"
+success_symbol = "[󰇵 ](bold green)"
+
+[line_break]
+disabled = true
+
+[username]
+disabled = false
+show_always = true
