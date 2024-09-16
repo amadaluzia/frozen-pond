@@ -13,7 +13,7 @@ let
     mkIf
     types
     ;
-    theme = inputs.dgt.packages.${pkgs.stdenv.system}.nixos-grub-theme;
+  theme = inputs.dgt.packages.${pkgs.stdenv.system}.nixos-grub-theme;
 in
 {
   options.frozen-pond.grub = {

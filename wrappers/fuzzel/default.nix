@@ -1,9 +1,10 @@
-{ pkgs, ... }: {
-	wrappers.fuzzel = {
-		basePackage = pkgs.fuzzel;
-		flags = [
-			"--config"
-			./fuzzel.ini
-		];
-	};
+{ pkgs, ... }:
+{
+  wrappers.fuzzel = {
+    basePackage = pkgs.fuzzel;
+    flags = [
+      "--config"
+      ./fuzzel.ini
+    ];
+  };
 }
