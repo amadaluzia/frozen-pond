@@ -1,4 +1,10 @@
-{ lib, ... }:
+{
+  lib,
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
 {
   options.frozen-pond = {
     desktop = lib.mkOption {
@@ -16,13 +22,15 @@
     };
   };
 
-  config = {
-    systemd.tmpfiles.rules =
-      let
-        wallpaper = "${../../wallpapers + "/oxocarbon.png"}";
-      in
-      [ "L+ /tmp/wallpaper 0644 - - - ${wallpaper}" ];
-  };
+  config = lib.mkMerge [
+    {
+      systemd.tmpfiles.rules =
+        let
+          wallpaper = "${../../wallpapers + "/oxocarbon.png"}";
+        in
+        [ "L+ /tmp/wallpaper 0644 - - - ${wallpaper}" ];
+    }
+  ];
 
   imports = [
     ./fonts.nix

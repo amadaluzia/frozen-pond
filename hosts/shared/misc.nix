@@ -34,7 +34,14 @@ in
         NIXOS_OZONE_WL = "1";
         QT_QPA_PLATFORM = "wayland";
       };
-      programs.dconf.enable = true;
+      programs = {
+        dconf.enable = true;
+        hyprlock.enable = true;
+      };
+      xdg.portal.enable = true;
+      security.polkit.enable = true;
+      services.gnome.gnome-keyring.enable = true;
+      fonts.enableDefaultPackages = true;
     })
     (mkIf cfg.xorg {
       services.xserver = {

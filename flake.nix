@@ -22,6 +22,11 @@
     niri.url = "github:sodiboo/niri-flake";
     f2k.url = "github:moni-dz/nixpkgs-f2k";
     gtk.url = "github:the-argus/gtk-nix";
+    wm = {
+      url = "github:viperml/wrapper-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    waybar.url = "github:Alexays/waybar/master";
   };
 
   outputs =
@@ -48,7 +53,21 @@
       };
 
       overlays.default = overlays;
-      packages = forAllSystems ({ pkgs }: import ./pkgs pkgs);
+      packages = forAllSystems (
+        { pkgs }:
+        (import ./pkgs pkgs)
+        //
+          pkgs.lib.concatMapAttrs (n: v: { "${n}-wrapped" = v; })
+            (inputs.wm.lib {
+              pkgs = pkgs;
+              specialArgs = {
+                inherit inputs;
+              };
+              modules = map (n: ./wrappers/${n}) (
+                builtins.attrNames (pkgs.lib.filterAttrs (_: v: v == "directory") (builtins.readDir ./wrappers))
+              );
+            }).config.build.packages
+      );
       devShells = forAllSystems (
         { pkgs }:
         {

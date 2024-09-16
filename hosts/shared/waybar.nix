@@ -1,7 +1,8 @@
 {
-  username,
   lib,
   config,
+  inputs,
+  pkgs,
   ...
 }:
 let
@@ -14,13 +15,9 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.waybar.enable = true;
-    systemd.user = {
-      tmpfiles.rules =
-        let
-          homeDir = "/home/${username}";
-        in
-        [ "L+ ${homeDir}/.config/waybar 0644 - - - ${./configs/waybar}" ];
+    programs.waybar = {
+      enable = true;
+      package = inputs.self.packages.${pkgs.system}.waybar-wrapped;
     };
   };
 }

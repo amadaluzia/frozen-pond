@@ -7,7 +7,7 @@ input {
     }
 
     touchpad {
-        off
+        // off
         // tap
         // dwt
         // dwtp

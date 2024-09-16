@@ -13,6 +13,7 @@ let
     mkIf
     types
     ;
+  theme = inputs.dgt.packages.${pkgs.stdenv.system}.nixos-grub-theme;
 in
 {
   options.frozen-pond.grub = {
@@ -38,7 +39,8 @@ in
         device = "nodev";
         enableCryptodisk = true;
         efiInstallAsRemovable = true;
-        theme = inputs.dgt.packages.${pkgs.stdenv.system}.nixos-grub-theme;
+        inherit theme;
+        splashImage = "${theme}/splash_image.jpg";
       };
     };
   };

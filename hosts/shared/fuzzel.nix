@@ -1,8 +1,8 @@
 {
-  username,
   lib,
   config,
   pkgs,
+  inputs,
   ...
 }:
 let
@@ -15,13 +15,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [ pkgs.fuzzel ];
-    systemd.user = {
-      tmpfiles.rules =
-        let
-          homeDir = "/home/${username}";
-        in
-        [ "L+ ${homeDir}/.config/fuzzel 0644 - - - ${./configs/fuzzel}" ];
-    };
+    environment.systemPackages = [ inputs.self.packages.${pkgs.system}.fuzzel-wrapped ];
   };
 }
