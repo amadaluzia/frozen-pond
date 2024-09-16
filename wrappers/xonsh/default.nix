@@ -2,14 +2,14 @@
   wrappers.xonsh = {
     basePackage = pkgs.myxonsh;
     env = {
-      XONSHRC = {
-        value = ./xonshrc;
-        force = true;
-      };
-      STARSHIP_CONFIG = {
-        value = ./starship.toml;
-        force = true;
-      };
+     XONSHRC = {
+       value = "/etc/xonsh/xonshrc:${./xonshrc}";
+       force = true;
+     };
+     STARSHIP_CONFIG = {
+       value = ./starship.toml;
+       force = true;
+     };
     };
   };
 }
