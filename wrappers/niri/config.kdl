@@ -39,7 +39,7 @@ input {
 }
 
 layout {
-    gaps 12
+    gaps 8
     center-focused-column "never"
     preset-column-widths {
         proportion 0.33333
@@ -75,9 +75,10 @@ layout {
     }
 }
 
-spawn-at-startup "bash -c '$HOME/.config/niri/scripts/dconf.sh'"
+spawn-at-startup "niri-dconf-script.sh"
 spawn-at-startup "swaybg" "-i" "/tmp/wallpaper" "-m" "fill"
 spawn-at-startup "waybar"
+spawn-at-startup "mako"
 
 prefer-no-csd
 
@@ -87,7 +88,7 @@ animations {
     // off
 
     // Slow down all animations by this factor. Values below 1 speed them up instead.
-    // slowdown 1.1
+    slowdown 0.7
 }
 
 window-rule {
@@ -106,6 +107,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+T { spawn "wezterm"; }
     Mod+D { spawn "fuzzel"; }
+    Mod+Shift+N { spawn "niri-dnd.sh"; }
     // Super+Alt+L { spawn "swaylock"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
@@ -240,4 +242,8 @@ binds {
 cursor {
   xcursor-theme "Simp1e"
   xcursor-size 28
+}
+
+hotkey-overlay {
+    skip-at-startup
 }

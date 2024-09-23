@@ -4,7 +4,7 @@
   "height": 36,
   "modules-left": [
     "custom/icon",
-    "niri/window"
+    "niri/workspaces"
   ],
   "modules-right": [
     "pulseaudio",
@@ -45,6 +45,6 @@
   "custom/logout": {
     "format": "󰐥",
     "tooltip": false,
-    "on-click": "niri msg action quit"
+    "on-click": ".niri-wrapped msg action quit"
   }
 }

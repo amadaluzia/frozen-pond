@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 local M = {}
 
 -- JANK COLOUR SCHEME STUFF!!!
-local my_colour_scheme = wezterm.color.get_builtin_schemes()["Oxocarbon Dark (Gogh)"]
+local my_colour_scheme = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
 
 M.color_schemes = {
 	["My Colour Scheme"] = my_colour_scheme,

@@ -14,6 +14,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = [ inputs.self.packages.${pkgs.stdenv.system}.mako-wrapped ];
+    environment.systemPackages = [ inputs.self.packages.${pkgs.system}.mako-wrapped ];
   };
 }

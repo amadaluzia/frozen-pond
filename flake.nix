@@ -27,6 +27,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     waybar.url = "github:Alexays/waybar/master";
+    walls.url = "github:NotAShelf/wallpkgs";
   };
 
   outputs =

@@ -23,17 +23,17 @@ in
     fonts = {
       packages =
         (builtins.attrValues {
-          inherit (pkgs) recursive merriweather twemoji-color-font;
-
-          mplus-outline-fonts = pkgs.mplus-outline-fonts.githubRelease;
+          inherit (pkgs) sarasa-gothic twemoji-color-font;
+          iosevka-comfy-fixed = pkgs.iosevka-comfy.comfy-fixed;
+          iosevka-comfy-motion-fixed = pkgs.iosevka-comfy.comfy-motion-fixed;
         })
         ++ cfg.extraPackages;
       fontconfig = {
         enable = true;
         defaultFonts = {
-          sansSerif = [ "Recursive Sans Casual Static" ];
-          monospace = [ "Recursive Mono Casual Static" ];
-          serif = [ "Merriweather" ];
+          sansSerif = [ "Iosevka Comfy Fixed" ];
+          monospace = [ "Iosevka Comfy Fixed" ];
+          serif = [ "Iosevka Comfy Motion Fixed" ];
           emoji = [ "Twitter Color Emoji" ];
         };
       };

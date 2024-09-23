@@ -17,11 +17,12 @@ in
     programs.chromium = {
       enable = true;
       extensions = [
-        "pgbjifpikialeahbdendkjioeafbmfkn" # Tokyo Night Storm
+        "bkkmolkhemgaeaeggcmfbghljjjoofoh" # Catppuccin Mocha
         "cjpalhdlnbpafiamejdnhcphjbkeiagm"
         "eimadpbcbfnmbkopoojfekhnkhdbieeh"
         "clngdbkpkpeebahjckkjfobafhncgmne"
         "dhdgffkkebhmkfjojejmpbldmpobfkfo"
+        "cbghhgpcnddeihccjmnadmkaejncjndb"
       ];
       initialPrefs = {
         "browser" = {

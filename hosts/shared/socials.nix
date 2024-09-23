@@ -6,12 +6,11 @@
 }:
 let
   cfg = config.frozen-pond.socials;
-  inherit (lib) mkEnableOption mkIf;
 in
 {
   options.frozen-pond.socials = {
-    element = mkEnableOption "socials";
-    vesktop = mkEnableOption "socials";
+    element = lib.mkEnableOption "socials";
+    vesktop = lib.mkEnableOption "socials";
   };
 
   config = {

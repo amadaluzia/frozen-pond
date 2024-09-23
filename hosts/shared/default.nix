@@ -26,7 +26,7 @@
     {
       systemd.tmpfiles.rules =
         let
-          wallpaper = "${../../wallpapers + "/oxocarbon.png"}";
+          wallpaper = "${inputs.walls.packages.${pkgs.system}.catppuccin}/share/wallpapers/catppuccin/01.png";
         in
         [ "L+ /tmp/wallpaper 0644 - - - ${wallpaper}" ];
     }

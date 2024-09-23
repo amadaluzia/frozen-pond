@@ -1,4 +1,4 @@
-@import "includes/oxocarbon.css";
+@import "includes/mocha.css";
 
 * {
   all: unset;
@@ -7,14 +7,21 @@
 }
 
 window#waybar {
-  background: @base00;
-  color: @base05;
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-top: 16px;
+  background: @base;
+  color: @text;
 }
 
 tooltip {
-  background: @base00;
-  color: @base05;
+  background: @base;
+  color: @text;
   border-radius: 0;
+}
+
+tooltip label {
+  color: @text;
 }
 
 #custom-logout {
@@ -30,43 +37,52 @@ tooltip {
 #clock,
 #disk,
 #network,
-#memory,
-#window {
+#memory {
   padding: 0 9px;
 }
 
 #custom-icon {
-  background: #78a9ff;
-  color: @base01;
+  color: @sapphire;
 }
 
 #pulseaudio,
 #wireplumber {
-  background: @base08;
-  color: @base01;
+  color: @mauve;
 }
 
 #network {
-  background: @base0B;
-  color: @base01;
+  color: @red;
 }
 
 #clock {
-  background: @base0C;
-  color: @base01;
+  color: @peach;
 }
 
 #disk {
-  background: @base0E;
-  color: @base01;
+  color: @green;
 }
 
 #memory {
-  background: @base0F;
-  color: @base01;
+  color: @sky;
 }
 
 #custom-logout {
-  background: @base0A;
-  color: @base01;
+  color: @lavender;
+}
+
+#workspaces {
+  color: @surface0;
+}
+
+#workspaces button {
+  padding: 0 12px;
+  color: @subtext0;
+}
+
+#workspaces button:hover {
+  color: @green;
+}
+
+#workspaces button.active {
+  color: @text;
 }

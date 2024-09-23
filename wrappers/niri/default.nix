@@ -10,7 +10,6 @@ in
 {
   wrappers.niri = {
     inherit basePackage;
-    flags = [ "--session" ];
     env.NIRI_CONFIG = {
       value = ./config.kdl;
       force = true;
