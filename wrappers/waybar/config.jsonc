@@ -45,6 +45,6 @@
   "custom/logout": {
     "format": "󰐥",
     "tooltip": false,
-    "on-click": ".niri-wrapped msg action quit"
+    "on-click": "niri msg action quit"
   }
 }
