@@ -29,7 +29,7 @@ No choice really. Not going to get to into it.
 
 *** CREDS!!!!!!!!
 
-shoutouts to [[https://codeberg.org/midirhee12][midirhee12]] for the xontribs
+shoutouts to [[https://codeberg.org/midirhee12][midirhee12]] for the xontribs (and MidOS which i theived the users option from >:^] )
 
 shoutouts to [[https://github.com/kzndotsh][kaizen]] for her fuzzel config
 
