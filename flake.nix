@@ -47,7 +47,7 @@
       nixosConfigurations = {
         toothless = newNixosSystem {
           hostname = "toothless";
-          username = "artur";
+          user = "artur";
           system = "x86_64-linux";
           extraModules = [ inputs.disko.nixosModules.disko ];
         };

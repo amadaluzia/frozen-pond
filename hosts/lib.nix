@@ -4,7 +4,7 @@
     {
       system,
       hostname,
-      username,
+      user ? "artur",
       extraModules ? [ ],
     }:
     let
@@ -20,20 +20,6 @@
               inherit overlays;
             };
             networking.hostName = hostname;
-            users.users.${username} = {
-              name = username;
-              home = "/home/${username}";
-              isNormalUser = true;
-              extraGroups = [
-                "wheel"
-                "video"
-                "audio"
-                "input"
-                "networkmanager"
-                "libvirtd"
-              ];
-              shell = pkgs.myxonsh;
-            };
             nix = {
               settings = {
                 extra-experimental-features = [
@@ -44,12 +30,24 @@
                 trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
               };
             };
-            environment.systemPackages = [ inputs.whyfetch.packages.${pkgs.system}.whyfetch ];
+            frozen-pond.users = {
+              ${user} = {
+                groups = [
+                  "wheel"
+                  "video"
+                  "audio"
+                  "libvirtd"
+                  "networkmanager"
+                  "input"
+                ];
+                packages = [ inputs.whyfetch.packages.${pkgs.stdenv.system}.whyfetch ];
+              };
+            };
           };
         }
       ];
       specialArgs = {
-        inherit inputs username hostname;
+        inherit inputs hostname;
       };
     };
 }

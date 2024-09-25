@@ -1,6 +1,5 @@
 {
   lib,
-  config,
   inputs,
   pkgs,
   ...
@@ -63,5 +62,6 @@
     ./fuzzel.nix
     ./mako.nix
     ./nyxt.nix
+    ./users.nix
   ];
 }

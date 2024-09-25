@@ -4,7 +4,7 @@ let
     nerdfonts-symbols = (prev.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; });
   };
   xonsh = final: prev: {
-    myxonsh = (
+    myonsh = (
       prev.xonsh.override {
         extraPackages = ps: [
           (ps.buildPythonPackage rec {
