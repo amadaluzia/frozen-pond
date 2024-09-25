@@ -1,5 +1,4 @@
 {
-  username,
   config,
   lib,
   ...
@@ -111,13 +110,10 @@ in
           diff = "auto";
           status = "auto";
         };
-        commit = {
-          gpgsign = "true";
-        };
         user = {
           email = "balkenix@outlook.com";
           name = "Artur Manuel";
-          signingKey = "55C20A84";
+          signingKey = "~/.ssh/id_ed25519.pub";
         };
       };
     };

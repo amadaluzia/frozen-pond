@@ -3,7 +3,7 @@
     disk = {
       main = {
         type = "disk";
-        device = "/dev/disk/by-id/ata-WDC_WDS240G2G0A-00JH30_204074800913";
+        device = "/dev/disk/by-id/ata-ST1000DM010-2EP102_W9AM12QR";
         content = {
           type = "gpt";
           partitions = {
