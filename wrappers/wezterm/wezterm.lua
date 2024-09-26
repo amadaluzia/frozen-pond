@@ -14,6 +14,7 @@ M.color_scheme = "My Colour Scheme"
 M.font = wezterm.font_with_fallback({
 	{ family = "Monospace" },
 })
+M.font_size = 13.0
 
 -- window padding
 M.window_padding = {

@@ -1,13 +1,11 @@
 add_newline = false
-format = "$username$directory$character"
-right_format = "$all"
 
 [character]
 error_symbol = "[󰇸 ](bold red)"
 success_symbol = "[󰇵 ](bold green)"
 
 [line_break]
-disabled = true
+disabled = false
 
 [username]
 disabled = false

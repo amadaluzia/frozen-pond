@@ -63,5 +63,6 @@
     ./mako.nix
     ./nyxt.nix
     ./users.nix
+    ./foot.nix
   ];
 }

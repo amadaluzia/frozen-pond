@@ -42,6 +42,7 @@ in
       security.polkit.enable = true;
       services.gnome.gnome-keyring.enable = true;
       fonts.enableDefaultPackages = true;
+      frozen-pond.foot.enable = true;
     })
     (mkIf cfg.xorg {
       services.xserver = {
