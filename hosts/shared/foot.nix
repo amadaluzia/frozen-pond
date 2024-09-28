@@ -1,4 +1,10 @@
-{ lib, config, inputs, pkgs, ... }:
+{
+  lib,
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
 let
   cfg = config.frozen-pond.foot;
 in
@@ -8,8 +14,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = [
-      inputs.self.packages.${pkgs.stdenv.system}.foot-wrapped
-    ];
+    environment.systemPackages = [ inputs.self.packages.${pkgs.stdenv.system}.foot-wrapped ];
   };
 }
