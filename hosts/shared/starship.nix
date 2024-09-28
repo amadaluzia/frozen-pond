@@ -11,7 +11,7 @@ in
   config = mkIf cfg.enable {
     programs.starship = {
       enable = true;
-      config = {
+       settings = {
         add_newline = false;
         character = {
           error_symbol = "[󰇸 ](bold red)";
