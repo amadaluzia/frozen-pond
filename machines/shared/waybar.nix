@@ -1,8 +1,8 @@
 {
   lib,
   config,
-  inputs,
   pkgs,
+  self,
   ...
 }: let
   cfg = config.frozen-pond.waybar;
@@ -15,7 +15,7 @@ in {
   config = mkIf cfg.enable {
     programs.waybar = {
       enable = true;
-      package = inputs.self.packages.${pkgs.system}.waybar-wrapped;
+      package = self.packages.${pkgs.system}.waybar-wrapped;
     };
   };
 }

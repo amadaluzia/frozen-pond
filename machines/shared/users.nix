@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  self,
   ...
 }: let
   cfg = config.frozen-pond.users;
@@ -50,7 +51,7 @@ in {
         isNormalUser = true;
         extraGroups = ucfg.groups;
         inherit (ucfg) packages;
-        shell = pkgs.myonsh;
+        shell = self.packages.${pkgs.system}.xonsh-wrapped;
       })
       cfg;
   };

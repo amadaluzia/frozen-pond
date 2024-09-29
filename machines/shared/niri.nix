@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  self,
   inputs,
   ...
 }: let
@@ -17,7 +18,7 @@ in {
     };
     programs.niri = {
       enable = true;
-      package = inputs.self.packages.${pkgs.system}.niri-wrapped;
+      package = self.packages.${pkgs.system}.niri-wrapped;
     };
   };
 }

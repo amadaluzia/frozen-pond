@@ -36,10 +36,16 @@
     ...
   }: let
     supportedSystems = ["x86_64-linux"];
-    overlays = import ./overlays {inherit inputs;};
+    overlays = [
+      self.overlays.modifications
+      self.overlays.additions
+      inputs.niri.overlays.niri
+    ];
     forAllSystems = f:
       nixpkgs.lib.genAttrs supportedSystems (
-        system: f {pkgs = import nixpkgs {inherit system overlays;};}
+        system: f {pkgs = import nixpkgs {
+          inherit system overlays;
+        };}
       );
     inherit (import ./machines/lib.nix {inherit inputs overlays;}) mkMachines;
     treefmtEval = forAllSystems ({pkgs}: inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
@@ -53,23 +59,12 @@
       };
     };
 
-    overlays.default = overlays;
+    overlays =
+      import ./overlays {inherit inputs;};
     packages = forAllSystems (
       {pkgs}:
-        (import ./pkgs pkgs)
-        // pkgs.lib.concatMapAttrs (n: v: {"${n}-wrapped" = v;})
-        (inputs.wm.lib {
-          pkgs = pkgs;
-          specialArgs = {
-            inherit inputs;
-          };
-          modules = map (n: ./wrappers/${n}) (
-            builtins.attrNames (pkgs.lib.filterAttrs (_: v: v == "directory") (builtins.readDir ./wrappers))
-          );
-        })
-        .config
-        .build
-        .packages
+        import ./pkgs pkgs
+        // import ./wrappers {inherit inputs pkgs;}
     );
     devShells = forAllSystems (
       {pkgs}: {

@@ -1,6 +1,6 @@
 {
-  inputs,
   pkgs,
+  self,
   config,
   lib,
   ...
@@ -12,6 +12,6 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = [inputs.self.packages.${pkgs.system}.mako-wrapped];
+    environment.systemPackages = [self.packages.${pkgs.system}.mako-wrapped];
   };
 }

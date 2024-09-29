@@ -2,6 +2,7 @@
   config,
   inputs,
   pkgs,
+  self,
   ...
 }: {
   config = {
@@ -12,7 +13,7 @@
       };
       xonsh = {
         enable = true;
-        package = inputs.self.packages.${pkgs.system}.xonsh-wrapped;
+        package = self.packages.${pkgs.system}.xonsh-wrapped;
       };
     };
 

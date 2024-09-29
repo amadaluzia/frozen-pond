@@ -1,7 +1,7 @@
 {
   lib,
+  self,
   config,
-  inputs,
   pkgs,
   ...
 }: let
@@ -12,6 +12,6 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = [inputs.self.packages.${pkgs.stdenv.system}.foot-wrapped];
+    environment.systemPackages = [self.packages.${pkgs.system}.foot-wrapped];
   };
 }

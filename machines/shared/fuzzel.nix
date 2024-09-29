@@ -2,7 +2,7 @@
   lib,
   config,
   pkgs,
-  inputs,
+  self,
   ...
 }: let
   cfg = config.frozen-pond.fuzzel;
@@ -13,6 +13,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [inputs.self.packages.${pkgs.system}.fuzzel-wrapped];
+    environment.systemPackages = [self.packages.${pkgs.system}.fuzzel-wrapped];
   };
 }

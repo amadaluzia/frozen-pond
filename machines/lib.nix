@@ -1,7 +1,4 @@
-{
-  inputs,
-  overlays,
-}: let
+{inputs, overlays}: let
   mkMachine = {
     system,
     hostname,
@@ -52,6 +49,7 @@
         ];
       specialArgs = {
         inherit inputs hostname;
+        inherit (inputs) self;
       };
     };
 in {

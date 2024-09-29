@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   wrappers.xonsh = {
-    basePackage = pkgs.myonsh;
+    basePackage = pkgs.xonsh;
     env = {
       XONSHRC = {
         value = "/etc/xonsh/xonshrc:${./xonshrc}";

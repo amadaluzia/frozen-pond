@@ -1,8 +1,8 @@
 {
   config,
   lib,
-  inputs,
   pkgs,
+  self,
   ...
 }: let
   cfg = config.frozen-pond.wezterm;
@@ -13,7 +13,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [inputs.self.packages.${pkgs.system}.wezterm-wrapped];
-    # systemd.user.tmpfiles.rules = [ "L+ ${homeDir}/.config/wezterm 0644 - - - ${./configs/wezterm}" ];
+    environment.systemPackages = [self.packages.${pkgs.system}.wezterm-wrapped];
   };
 }
