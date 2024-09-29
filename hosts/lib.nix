@@ -11,14 +11,12 @@
       pkgs = import inputs.nixpkgs { inherit system overlays; };
     in
     inputs.nixpkgs.lib.nixosSystem {
+      inherit system pkgs;
       modules = extraModules ++ [
         ./${hostname}
         ./shared
         {
           config = {
-            nixpkgs = {
-              inherit overlays;
-            };
             networking.hostName = hostname;
             nix = {
               settings = {
@@ -28,6 +26,10 @@
                 ];
                 substituters = [ "https://cosmic.cachix.org/" ];
                 trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+              };
+              gc = {
+                automatic = true;
+                dates = "weekly";
               };
             };
             frozen-pond.users = {
