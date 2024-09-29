@@ -5,5 +5,5 @@ OGDI="/org/gnome/desktop/interface"
 dconf write "$OGDI/color-scheme" '"prefer-dark"'
 dconf write "$OGDI/gtk-theme" '"catppuccin-mocha-green-standard+rimless"'
 dconf write "$OGDI/icon-theme" '"Qogir-dark"'
-dconf write "$OGDI/cursor-theme" '"Simp1e"'
+dconf write "$OGDI/cursor-theme" '"Simp1e-Catppuccin-Mocha"'
 dconf write "$OGDI/text-scaling-factor" '1.2'

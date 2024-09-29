@@ -240,7 +240,7 @@ binds {
 }
 
 cursor {
-  xcursor-theme "Simp1e"
+  xcursor-theme "Simp1e-Catppuccin-Mocha"
   xcursor-size 28
 }
 
