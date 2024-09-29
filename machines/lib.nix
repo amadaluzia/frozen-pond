@@ -1,6 +1,6 @@
 { inputs, overlays }:
-{
-  newNixosSystem =
+let
+  mkMachine =
     {
       system,
       hostname,
@@ -52,4 +52,7 @@
         inherit inputs hostname;
       };
     };
+in
+{
+  mkMachines = machines: builtins.mapAttrs (_: v: mkMachine v) machines;
 }

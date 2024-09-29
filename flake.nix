@@ -40,12 +40,12 @@
         nixpkgs.lib.genAttrs supportedSystems (
           system: f { pkgs = import nixpkgs { inherit system overlays; }; }
         );
-      inherit (import ./hosts/lib.nix { inherit inputs overlays; }) newNixosSystem;
+      inherit (import ./machines/lib.nix { inherit inputs overlays; }) mkMachines;
       treefmtEval = forAllSystems ({ pkgs }: inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
     in
     {
-      nixosConfigurations = {
-        toothless = newNixosSystem {
+      nixosConfigurations = mkMachines {
+        toothless = {
           hostname = "toothless";
           user = "artur";
           system = "x86_64-linux";
