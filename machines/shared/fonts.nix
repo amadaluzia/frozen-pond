@@ -3,19 +3,17 @@
   config,
   lib,
   ...
-}:
-let
+}: let
   cfg = config.frozen-pond.fonts;
   inherit (lib) mkEnableOption mkOption mkIf;
   inherit (lib.types) listOf package;
-in
-{
+in {
   options.frozen-pond.fonts = {
     enable = mkEnableOption "fonts";
     extraPackages = mkOption {
       type = listOf package;
       description = "Extra fonts to install.";
-      default = [ pkgs.nerdfonts-symbols ];
+      default = [pkgs.nerdfonts-symbols];
     };
   };
 
@@ -31,10 +29,10 @@ in
       fontconfig = {
         enable = true;
         defaultFonts = {
-          sansSerif = [ "Iosevka Comfy Fixed" ];
-          monospace = [ "Iosevka Comfy Fixed" ];
-          serif = [ "Iosevka Comfy Motion Fixed" ];
-          emoji = [ "Twitter Color Emoji" ];
+          sansSerif = ["Iosevka Comfy Fixed"];
+          monospace = ["Iosevka Comfy Fixed"];
+          serif = ["Iosevka Comfy Motion Fixed"];
+          emoji = ["Twitter Color Emoji"];
         };
       };
     };

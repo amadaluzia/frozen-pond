@@ -1,5 +1,8 @@
-{ pkgs, inputs, ... }:
-let
+{
+  pkgs,
+  inputs,
+  ...
+}: let
   styleCss = pkgs.writeText "style.css" ''
     @import "${./includes/mocha.css}";
 
@@ -90,8 +93,7 @@ let
       color: @text;
     }
   '';
-in
-{
+in {
   wrappers.waybar = {
     basePackage = inputs.waybar.packages.${pkgs.system}.waybar;
     flags = [

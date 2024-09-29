@@ -3,8 +3,7 @@
   inputs,
   pkgs,
   ...
-}:
-{
+}: {
   options.frozen-pond = {
     desktop = lib.mkOption {
       type = lib.types.nullOr (
@@ -23,11 +22,9 @@
 
   config = lib.mkMerge [
     {
-      systemd.tmpfiles.rules =
-        let
-          wallpaper = "${inputs.walls.packages.${pkgs.system}.catppuccin}/share/wallpapers/catppuccin/01.png";
-        in
-        [ "L+ /tmp/wallpaper 0644 - - - ${wallpaper}" ];
+      systemd.tmpfiles.rules = let
+        wallpaper = "${inputs.walls.packages.${pkgs.system}.catppuccin}/share/wallpapers/catppuccin/01.png";
+      in ["L+ /tmp/wallpaper 0644 - - - ${wallpaper}"];
     }
   ];
 

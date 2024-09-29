@@ -3,12 +3,10 @@
   pkgs,
   lib,
   ...
-}:
-let
+}: let
   cfg = config.frozen-pond.polkit;
   inherit (lib) mkEnableOption mkIf;
-in
-{
+in {
   options.frozen-pond.polkit = {
     enable = mkEnableOption "polkit";
   };
@@ -17,9 +15,9 @@ in
     systemd = {
       user.services.polkit-kde-authentication-agent-1 = {
         description = "polkit-kde-authentication-agent-1";
-        wantedBy = [ "graphical-session.target" ];
-        wants = [ "graphical-session.target" ];
-        after = [ "graphical-session.target" ];
+        wantedBy = ["graphical-session.target"];
+        wants = ["graphical-session.target"];
+        after = ["graphical-session.target"];
         serviceConfig = {
           Type = "simple";
           ExecStart = "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1";
@@ -30,6 +28,6 @@ in
       };
     };
 
-    environment.systemPackages = [ pkgs.kdePackages.polkit-kde-agent-1 ];
+    environment.systemPackages = [pkgs.kdePackages.polkit-kde-agent-1];
   };
 }

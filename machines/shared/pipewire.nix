@@ -3,12 +3,10 @@
   pkgs,
   lib,
   ...
-}:
-let
+}: let
   cfg = config.frozen-pond.pipewire;
   inherit (lib) mkEnableOption mkIf;
-in
-{
+in {
   options.frozen-pond.pipewire = {
     enable = mkEnableOption "pipewire";
   };

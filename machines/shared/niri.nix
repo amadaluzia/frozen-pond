@@ -4,12 +4,10 @@
   pkgs,
   inputs,
   ...
-}:
-let
+}: let
   cfg = config.frozen-pond;
-in
-{
-  imports = [ inputs.niri.nixosModules.niri ];
+in {
+  imports = [inputs.niri.nixosModules.niri];
   config = lib.mkIf (cfg.desktop == "niri") {
     frozen-pond = {
       fuzzel.enable = true;

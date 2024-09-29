@@ -3,12 +3,10 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   cfg = config.frozen-pond.misc;
   inherit (lib) mkIf mkEnableOption;
-in
-{
+in {
   options.frozen-pond.misc = {
     sudo_prompt = mkEnableOption "sudo prompt";
     wayland = mkEnableOption "wayland";

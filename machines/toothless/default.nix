@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   imports = [
     ./hardware.nix
     ./disks.nix
@@ -57,7 +56,7 @@
     Option "VariableRefresh" "true"
   '';
 
-  environment.systemPackages = [ pkgs.wget ];
+  environment.systemPackages = [pkgs.wget];
 
   programs.gnupg.agent = {
     enable = true;

@@ -3,12 +3,10 @@
   pkgs,
   lib,
   ...
-}:
-let
+}: let
   cfg = config.frozen-pond.virtualisation;
   inherit (lib) mkEnableOption mkIf;
-in
-{
+in {
   options.frozen-pond.virtualisation = {
     enable = mkEnableOption "virtualisation";
   };

@@ -4,18 +4,16 @@
   inputs,
   pkgs,
   ...
-}:
-let
+}: let
   cfg = config.frozen-pond.neovim;
   inherit (lib) mkEnableOption mkIf;
-in
-{
+in {
   options.frozen-pond.neovim = {
     enable = mkEnableOption "neovim";
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [ inputs.nixstart.packages.${pkgs.stdenv.system}.nvim ];
+    environment.systemPackages = [inputs.nixstart.packages.${pkgs.stdenv.system}.nvim];
 
     environment.shellAliases = {
       "v" = "nvim";

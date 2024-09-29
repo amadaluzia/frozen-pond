@@ -30,51 +30,52 @@
     walls.url = "github:NotAShelf/wallpkgs";
   };
 
-  outputs =
-    inputs@{ self, nixpkgs, ... }:
-    let
-      supportedSystems = [ "x86_64-linux" ];
-      overlays = (import ./overlays { inherit inputs; });
-      forAllSystems =
-        f:
-        nixpkgs.lib.genAttrs supportedSystems (
-          system: f { pkgs = import nixpkgs { inherit system overlays; }; }
-        );
-      inherit (import ./machines/lib.nix { inherit inputs overlays; }) mkMachines;
-      treefmtEval = forAllSystems ({ pkgs }: inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
-    in
-    {
-      nixosConfigurations = mkMachines {
-        toothless = {
-          hostname = "toothless";
-          user = "artur";
-          system = "x86_64-linux";
-          extraModules = [ inputs.disko.nixosModules.disko ];
-        };
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    ...
+  }: let
+    supportedSystems = ["x86_64-linux"];
+    overlays = import ./overlays {inherit inputs;};
+    forAllSystems = f:
+      nixpkgs.lib.genAttrs supportedSystems (
+        system: f {pkgs = import nixpkgs {inherit system overlays;};}
+      );
+    inherit (import ./machines/lib.nix {inherit inputs overlays;}) mkMachines;
+    treefmtEval = forAllSystems ({pkgs}: inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
+  in {
+    nixosConfigurations = mkMachines {
+      toothless = {
+        hostname = "toothless";
+        user = "artur";
+        system = "x86_64-linux";
+        extraModules = [inputs.disko.nixosModules.disko];
       };
-
-      overlays.default = overlays;
-      packages = forAllSystems (
-        { pkgs }:
-        (import ./pkgs pkgs)
-        //
-          pkgs.lib.concatMapAttrs (n: v: { "${n}-wrapped" = v; })
-            (inputs.wm.lib {
-              pkgs = pkgs;
-              specialArgs = {
-                inherit inputs;
-              };
-              modules = map (n: ./wrappers/${n}) (
-                builtins.attrNames (pkgs.lib.filterAttrs (_: v: v == "directory") (builtins.readDir ./wrappers))
-              );
-            }).config.build.packages
-      );
-      devShells = forAllSystems (
-        { pkgs }:
-        {
-          default = pkgs.callPackage ./shell.nix { };
-        }
-      );
-      formatter = forAllSystems ({ pkgs }: treefmtEval.${pkgs.system}.config.build.wrapper);
     };
+
+    overlays.default = overlays;
+    packages = forAllSystems (
+      {pkgs}:
+        (import ./pkgs pkgs)
+        // pkgs.lib.concatMapAttrs (n: v: {"${n}-wrapped" = v;})
+        (inputs.wm.lib {
+          pkgs = pkgs;
+          specialArgs = {
+            inherit inputs;
+          };
+          modules = map (n: ./wrappers/${n}) (
+            builtins.attrNames (pkgs.lib.filterAttrs (_: v: v == "directory") (builtins.readDir ./wrappers))
+          );
+        })
+        .config
+        .build
+        .packages
+    );
+    devShells = forAllSystems (
+      {pkgs}: {
+        default = pkgs.callPackage ./shell.nix {};
+      }
+    );
+    formatter = forAllSystems ({pkgs}: treefmtEval.${pkgs.system}.config.build.wrapper);
+  };
 }

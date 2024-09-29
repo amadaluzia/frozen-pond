@@ -3,13 +3,11 @@
   pkgs,
   lib,
   ...
-}:
-let
+}: let
   inherit (lib) mkIf;
   gtkTheme = pkgs.myppuccin-gtk;
   qtTheme = pkgs.myppuccin-kvantum;
-in
-{
+in {
   config = mkIf (builtins.isString config.frozen-pond.desktop) {
     environment.systemPackages = [
       gtkTheme
@@ -23,7 +21,7 @@ in
       platformTheme = "qt5ct";
       style = "kvantum";
     };
-    environment.pathsToLink = [ "/share/Kvantum" ];
+    environment.pathsToLink = ["/share/Kvantum"];
     programs.dconf.enable = true;
   };
 }

@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   wrappers.xonsh = {
     basePackage = pkgs.myonsh;
     env = {

@@ -1,9 +1,11 @@
-{ config, lib, ... }:
-let
+{
+  config,
+  lib,
+  ...
+}: let
   cfg = config.frozen-pond.git;
   inherit (lib) mkEnableOption mkIf;
-in
-{
+in {
   options.frozen-pond.git = {
     enable = mkEnableOption "git";
   };

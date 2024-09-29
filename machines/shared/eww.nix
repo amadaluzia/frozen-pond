@@ -4,12 +4,10 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   cfg = config.frozen-pond.eww;
   inherit (lib) mkEnableOption mkIf;
-in
-{
+in {
   options.frozen-pond.eww = {
     enable = mkEnableOption "eww";
   };

@@ -1,9 +1,11 @@
-{ config, lib, ... }:
-let
+{
+  config,
+  lib,
+  ...
+}: let
   cfg = config.frozen-pond.starship;
   inherit (lib) mkEnableOption mkIf;
-in
-{
+in {
   options.frozen-pond.starship = {
     enable = mkEnableOption "starship";
   };

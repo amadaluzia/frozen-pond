@@ -3,8 +3,7 @@
   inputs,
   pkgs,
   ...
-}:
-{
+}: {
   config = {
     programs = {
       command-not-found = {

@@ -1,7 +1,6 @@
-{ inputs }:
-let
+{inputs}: let
   fonts = _final: prev: {
-    nerdfonts-symbols = (prev.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; });
+    nerdfonts-symbols = prev.nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];};
   };
   xonsh = final: prev: {
     myonsh = (
@@ -62,8 +61,7 @@ let
     );
   };
   adds = final: _prev: import ../pkgs final;
-in
-[
+in [
   fonts
   xonsh
   adds

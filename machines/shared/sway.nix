@@ -4,11 +4,9 @@
   lib,
   username,
   ...
-}:
-let
+}: let
   inherit (lib) mkIf;
-in
-{
+in {
   config = mkIf (config.frozen-pond.desktop == "sway") {
     frozen-pond = {
       misc.wayland = true;
@@ -26,7 +24,7 @@ in
     xdg.portal = {
       enable = true;
       wlr.enable = true;
-      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      extraPortals = [pkgs.xdg-desktop-portal-gtk];
       config = {
         sway.default = [
           "wlr"
@@ -36,17 +34,15 @@ in
     };
 
     systemd.user = {
-      tmpfiles.rules =
-        let
-          homeDir = "/home/${username}";
-        in
-        [ "L+ ${homeDir}/.config/sway 0644 - - - ${./configs/sway}" ];
+      tmpfiles.rules = let
+        homeDir = "/home/${username}";
+      in ["L+ ${homeDir}/.config/sway 0644 - - - ${./configs/sway}"];
       targets.sway-session = {
         description = "sway compositor session";
-        documentation = [ "man:systemd.special(7)" ];
-        bindsTo = [ "graphical-session.target" ];
-        wants = [ "graphical-session-pre.target" ];
-        after = [ "graphical-session-pre.target" ];
+        documentation = ["man:systemd.special(7)"];
+        bindsTo = ["graphical-session.target"];
+        wants = ["graphical-session-pre.target"];
+        after = ["graphical-session-pre.target"];
       };
     };
   };

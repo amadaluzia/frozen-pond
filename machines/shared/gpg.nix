@@ -3,12 +3,10 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   cfg = config.frozen-pond.gpg;
   inherit (lib) mkIf mkEnableOption;
-in
-{
+in {
   options.frozen-pond.gpg = {
     enable = mkEnableOption "gpg";
   };

@@ -1,4 +1,4 @@
-{ iosevka }:
+{iosevka}:
 iosevka.override {
   privateBuildPlan = ''
     [buildPlans.IosevkaCustom]

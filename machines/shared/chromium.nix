@@ -3,12 +3,10 @@
   pkgs,
   config,
   ...
-}:
-let
+}: let
   cfg = config.frozen-pond.chromium;
   inherit (lib) mkEnableOption mkIf;
-in
-{
+in {
   options.frozen-pond.chromium = {
     enable = mkEnableOption "chromium";
   };
@@ -31,6 +29,6 @@ in
       };
     };
 
-    environment.systemPackages = [ pkgs.chromium ];
+    environment.systemPackages = [pkgs.chromium];
   };
 }

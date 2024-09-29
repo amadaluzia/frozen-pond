@@ -3,15 +3,13 @@
   config,
   pkgs,
   ...
-}:
-let
+}: let
   cfg = config.frozen-pond.nyxt;
-in
-{
+in {
   options.frozen-pond.nyxt = {
     enable = lib.mkEnableOption "nyxt";
     default = lib.mkEnableOption "nyxt";
   };
 
-  config = lib.mkIf cfg.enable { environment.systemPackages = [ pkgs.nyxt ]; };
+  config = lib.mkIf cfg.enable {environment.systemPackages = [pkgs.nyxt];};
 }

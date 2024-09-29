@@ -4,18 +4,17 @@
   pkgs,
   lib,
   ...
-}:
-let
+}: let
   cfg = config.frozen-pond.grub;
-  inherit (lib)
+  inherit
+    (lib)
     mkEnableOption
     mkOption
     mkIf
     types
     ;
   theme = inputs.dgt.packages.${pkgs.stdenv.system}.nixos-grub-theme;
-in
-{
+in {
   options.frozen-pond.grub = {
     enable = mkEnableOption "grub";
     efi = mkOption {

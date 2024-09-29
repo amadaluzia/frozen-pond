@@ -3,12 +3,10 @@
   lib,
   inputs,
   ...
-}:
-let
+}: let
   inherit (lib) mkIf;
-in
-{
-  imports = [ inputs.cosmic.nixosModules.default ];
+in {
+  imports = [inputs.cosmic.nixosModules.default];
 
   config = mkIf (config.frozen-pond.desktop == "cosmic") {
     frozen-pond.misc.wayland = true;

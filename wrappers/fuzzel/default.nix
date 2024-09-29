@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   wrappers.fuzzel = {
     basePackage = pkgs.fuzzel;
     flags = [

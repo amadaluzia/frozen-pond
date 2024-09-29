@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   wrappers.mako = {
     basePackage = pkgs.mako;
     flags = [

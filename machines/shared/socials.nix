@@ -3,11 +3,9 @@
   pkgs,
   lib,
   ...
-}:
-let
+}: let
   cfg = config.frozen-pond.socials;
-in
-{
+in {
   options.frozen-pond.socials = {
     element = lib.mkEnableOption "socials";
     vesktop = lib.mkEnableOption "socials";

@@ -4,11 +4,9 @@
   inputs,
   lib,
   ...
-}:
-let
+}: let
   cfg = config.frozen-pond.emacs;
-in
-{
+in {
   options.frozen-pond.emacs = {
     enable = lib.mkEnableOption "emacs";
   };
