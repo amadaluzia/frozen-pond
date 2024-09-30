@@ -3,104 +3,19 @@
   inputs,
   ...
 }: let
-  styleCss = pkgs.writeText "style.css" ''
-    @import "${./includes/mocha.css}";
-
-    * {
-      all: unset;
-      font-family: "monospace";
-      font-size: 17px;
-    }
-
-    window#waybar {
-      margin-left: 16px;
-      margin-right: 16px;
-      margin-top: 16px;
-      background: @base;
-      color: @text;
-    }
-
-    tooltip {
-      background: @base;
-      color: @text;
-      border-radius: 0;
-    }
-
-    tooltip label {
-      color: @text;
-    }
-
-    #custom-logout {
-      padding: 0 12px;
-    }
-
-    #custom-icon {
-      padding: 0 10px;
-    }
-
-    #pulseaudio,
-    #wireplumber,
-    #clock,
-    #disk,
-    #network,
-    #memory {
-      padding: 0 9px;
-    }
-
-    #custom-icon {
-      color: @sapphire;
-    }
-
-    #pulseaudio,
-    #wireplumber {
-      color: @mauve;
-    }
-
-    #network {
-      color: @red;
-    }
-
-    #clock {
-      color: @peach;
-    }
-
-    #disk {
-      color: @green;
-    }
-
-    #memory {
-      color: @sky;
-    }
-
-    #custom-logout {
-      color: @lavender;
-    }
-
-    #workspaces {
-      color: @surface0;
-    }
-
-    #workspaces button {
-      padding: 0 12px;
-      color: @subtext0;
-    }
-
-    #workspaces button:hover {
-      color: @green;
-    }
-
-    #workspaces button.active {
-      color: @text;
-    }
+  config = ./config.jsonc;
+  style = pkgs.runCommand "style.css" {} ''
+    substitute ${./style.css} $out \
+      --replace-fail "includes/mocha.css" "${./includes/mocha.css}"
   '';
 in {
   wrappers.waybar = {
     basePackage = inputs.waybar.packages.${pkgs.system}.waybar;
     flags = [
       "--config"
-      ./config.jsonc
+      config
       "--style"
-      styleCss
+      style
     ];
   };
 }
