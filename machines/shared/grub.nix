@@ -24,8 +24,12 @@ in {
     };
     disko = mkOption {
       type = types.bool;
-      description = "If enables, removes the device check.";
+      description = "If enabled, removes the device check.";
       default = false;
+    };
+    crypted = mkOption {
+      type = types.bool;
+      description = "Sets the status of the disk if it is encrypted or not.";
     };
   };
 
@@ -36,8 +40,8 @@ in {
         enable = true;
         efiSupport = cfg.efi;
         device = "nodev";
-        enableCryptodisk = true;
-        efiInstallAsRemovable = true;
+        enableCryptodisk = cfg.crypted;
+        efiInstallAsRemovable = cfg.efi;
         inherit theme;
         splashImage = "${theme}/splash_image.jpg";
       };

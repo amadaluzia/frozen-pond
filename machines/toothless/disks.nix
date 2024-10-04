@@ -3,7 +3,7 @@
     disk = {
       main = {
         type = "disk";
-        device = "/dev/disk/by-id/ata-ST1000DM010-2EP102_W9AM12QR";
+        device = "/dev/disk/by-id/nvme-WDC_PC_SN520_SDAPNUW-256G-1014_20270F804683";
         content = {
           type = "gpt";
           partitions = {
@@ -21,7 +21,7 @@
               size = "100%";
               content = {
                 type = "luks";
-                name = "myencdisk";
+                name = "utero";
                 passwordFile = "/tmp/secret.key"; # Interactive
                 settings = {
                   allowDiscards = true;
@@ -30,28 +30,28 @@
                   type = "btrfs";
                   extraArgs = ["-f"];
                   subvolumes = {
-                    "/root" = {
+                    "/@root" = {
                       mountpoint = "/";
                       mountOptions = [
                         "compress=zstd"
                         "noatime"
                       ];
                     };
-                    "/home" = {
+                    "/@home" = {
                       mountpoint = "/home";
                       mountOptions = [
                         "compress=zstd"
                         "noatime"
                       ];
                     };
-                    "/nix" = {
+                    "/@nix" = {
                       mountpoint = "/nix";
                       mountOptions = [
                         "compress=zstd"
                         "noatime"
                       ];
                     };
-                    "/swap" = {
+                    "/@swap" = {
                       mountpoint = "/.swapvol";
                       swap.swapfile.size = "8G";
                     };

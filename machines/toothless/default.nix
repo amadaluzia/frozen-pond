@@ -12,11 +12,6 @@
     chromium.enable = true;
     direnv.enable = true;
     git.enable = true;
-    gpg.enable = true;
-    grub = {
-      enable = true;
-      disko = true;
-    };
     pipewire.enable = true;
     socials.element = true;
     polkit.enable = true;
@@ -27,6 +22,16 @@
     qutebrowser.enable = true;
     nyxt.enable = true;
     misc.sudo_prompt = true;
+  };
+
+  boot.loader = {
+    efi.canTouchEfiVariables = false;
+    systemd-boot = {
+      enable = true;
+      editor = true;
+      memtest86.enable = true;
+      consoleMode = "max";
+    };
   };
 
   xdg.mime.defaultApplications = {
@@ -50,18 +55,13 @@
     driSupport32Bit = true;
   };
 
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "en_GB.UTF-8";
 
   services.xserver.deviceSection = ''
     Option "VariableRefresh" "true"
   '';
 
   environment.systemPackages = [pkgs.wget];
-
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
 
   environment.variables = {
     ROC_ENABLE_PRE_VEGA = "1";

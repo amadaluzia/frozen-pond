@@ -5,13 +5,12 @@
   ...
 }: let
   cfg = config.frozen-pond.gpg;
-  inherit (lib) mkIf mkEnableOption;
 in {
   options.frozen-pond.gpg = {
-    enable = mkEnableOption "gpg";
+    enable = lib.mkEnableOption "gpg";
   };
 
-  config = {
+  config = lib.mkIf cfg.enable {
     programs.gnupg.agent = {
       enable = true;
       enableSSHSupport = true;

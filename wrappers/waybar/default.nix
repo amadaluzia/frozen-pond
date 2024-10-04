@@ -6,7 +6,7 @@
   config = ./config.jsonc;
   style = pkgs.runCommand "style.css" {} ''
     substitute ${./style.css} $out \
-      --replace-fail "includes/mocha.css" "${./includes/mocha.css}"
+      --replace-fail "includes/oxocarbon.css" "${./includes/oxocarbon.css}"
   '';
 in {
   wrappers.waybar = {

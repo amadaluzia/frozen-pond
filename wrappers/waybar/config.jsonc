@@ -8,20 +8,19 @@
   ],
   "modules-right": [
     "pulseaudio",
-    "memory",
     "network",
+    "memory",
+    "cpu",
     "disk",
-    "clock",
-    "custom/logout"
+    "clock"
   ],
-  "niri/window": {
-    "icon": true,
-    "icon-size": 24,
-  },
   "custom/icon": {
     "format": "",
     "tooltip": false,
     "on-click": "fuzzel"
+  },
+  "cpu": {
+    "format": " {usage}%",
   },
   "disk": {
     "format": " {used}/{total}",

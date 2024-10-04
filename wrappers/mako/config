@@ -2,27 +2,27 @@
 
 sort=-time
 layer=overlay
-background-color=#1e1e2e
-text-color=#cdd6f4
+background-color=#161616
+text-color=#ffffff
 width=300
 height=110
 border-size=1
-border-color=#181825
+border-color=#161616
 icons=0
 max-icon-size=64
-default-timeout=5000
+default-timeout=3000
 ignore-timeout=1
 font=monospace 13
 
 [urgency=low]
-border-color=#181825
+text-color=#393939
 
 [urgency=normal]
-border-color=#fab387
+text-color=#33b1ff
 
 [urgency=high]
-border-color=#f38ba8
-default-timeout=0
+text-color=#ee5396
+default-timeout=10000
 
 [category=mpd]
 default-timeout=2000

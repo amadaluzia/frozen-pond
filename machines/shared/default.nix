@@ -1,7 +1,5 @@
 {
   lib,
-  inputs,
-  pkgs,
   ...
 }: {
   options.frozen-pond = {
@@ -20,13 +18,19 @@
     };
   };
 
-  config = lib.mkMerge [
-    {
-      systemd.tmpfiles.rules = let
-        wallpaper = "${inputs.walls.packages.${pkgs.system}.catppuccin}/share/wallpapers/catppuccin/01.png";
-      in ["L+ /tmp/wallpaper 0644 - - - ${wallpaper}"];
-    }
-  ];
+  config = {
+    systemd.tmpfiles.rules = let
+      wallpaper = ../../wallpapers/lain.png;
+    in ["L+ /tmp/wallpaper 0644 - - - ${wallpaper}"];
+    services.openssh = {
+      enable = true;
+      settings = {
+        PermitRootLogin = "no";
+        PasswordAuthentication = false;
+      };
+    };
+    programs.ssh.startAgent = true;
+  };
 
   imports = [
     ./fonts.nix

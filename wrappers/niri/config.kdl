@@ -30,10 +30,10 @@ input {
 }
 
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
-/-output "eDP-1" {
+output "HDMI-A-1" {
     // off
-    mode "1920x1080@120.030"
-    scale 2
+    mode "1920x1080@100"
+    scale 1
     transform "normal"
     position x=1280 y=0
 }
