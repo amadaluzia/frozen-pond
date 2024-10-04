@@ -4,6 +4,8 @@
   "height": 36,
   "modules-left": [
     "custom/icon",
+  ],
+  "modules-center": [
     "niri/workspaces"
   ],
   "modules-right": [
