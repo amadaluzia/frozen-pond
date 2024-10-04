@@ -901,11 +901,11 @@
         "nixpkgs": "nixpkgs_8"
       },
       "locked": {
-        "lastModified": 1727053802,
-        "narHash": "sha256-HjCoW1frfK2OyNvR97d9BuSQAfhRkE0xSYFL2tu2m0I=",
+        "lastModified": 1728075950,
+        "narHash": "sha256-9JelOTu7LwLrSqfhYp6tmHbp9cpghN5ao0gwgk53gxs=",
         "ref": "refs/heads/main",
-        "rev": "34bb9fd0124d32692b66ea366563b1dc4360df1c",
-        "revCount": 11,
+        "rev": "82baa601baae342f841a8a0abc39b19fc137e2be",
+        "revCount": 12,
         "type": "git",
         "url": "https://codeberg.org/amadaluzia/nixstart.nvim.git"
       },

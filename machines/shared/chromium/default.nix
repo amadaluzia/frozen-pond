@@ -15,7 +15,6 @@ in {
     programs.chromium = {
       enable = true;
       extensions = [
-        "bkkmolkhemgaeaeggcmfbghljjjoofoh" # Catppuccin Mocha
         "cjpalhdlnbpafiamejdnhcphjbkeiagm"
         "eimadpbcbfnmbkopoojfekhnkhdbieeh"
         "clngdbkpkpeebahjckkjfobafhncgmne"
@@ -23,12 +22,20 @@ in {
         "cbghhgpcnddeihccjmnadmkaejncjndb"
       ];
       initialPrefs = {
-        "browser" = {
-          "confirm-to-quit" = false;
+        browser = {
+          confirm-to-quit = false;
         };
+        bookmark_bar = {
+          show_on_all_tabs = false;
+        };
+        import_bookmarks = true;
+        import_bookmarks_from_file = "${./bookmarks.html}";
       };
+      defaultSearchProviderEnabled = true;
+      defaultSearchProviderSearchURL = "https://search.leptons.xyz/searxng/search?q={searchTerms}";
+      defaultSearchProviderSuggestURL = "https://search.leptons.xyz/searxng/autocompleter?autocomplete=brave&safesearch=2&q={searchTerms}";
     };
 
-    environment.systemPackages = [pkgs.chromium];
+    environment.systemPackages = [pkgs.brave];
   };
 }

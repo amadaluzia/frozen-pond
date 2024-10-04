@@ -40,7 +40,7 @@
     ./sway.nix
     ./kde.nix
     ./git.nix
-    ./chromium.nix
+    ./chromium
     ./emacs.nix
     ./socials.nix
     ./wezterm.nix
