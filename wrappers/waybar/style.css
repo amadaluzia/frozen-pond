@@ -11,17 +11,17 @@ window#waybar {
   margin-right: 16px;
   margin-top: 16px;
   background: @base00;
-  color: @base06;
+  color: @base05;
 }
 
 tooltip {
   background: @base00;
-  color: @base06;
+  color: @base05;
   border-radius: 0;
 }
 
 tooltip label {
-  color: @base06;
+  color: @base05;
 }
 
 #custom-logout {
@@ -72,12 +72,12 @@ tooltip label {
 }
 
 #workspaces {
-  color: @base04;
+  color: @base03;
 }
 
 #workspaces button {
   padding: 0 12px;
-  color: @base04;
+  color: @base03;
 }
 
 #workspaces button:hover {
@@ -85,5 +85,5 @@ tooltip label {
 }
 
 #workspaces button.active {
-  color: @base06;
+  color: @base05;
 }
