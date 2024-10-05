@@ -60,14 +60,12 @@ in {
       ];
     })
     (mkIf cfg.alarm {
-      systemd = {
-        services.alarm-clock = {
-          description = "artur's stupid sleep alarm";
-          wants = ["graphical-session.target"];
-          startAt = "*-*-* 22:45:00";
-          serviceConfig = {
-            ExecStart = "${pkgs.arturs-stupid-alarm-clock}/bin/arturs-stupid-alarm-clock";
-          };
+      systemd.user.services.alarm-clock = {
+        description = "artur's stupid sleep alarm";
+        wants = ["graphical-session.target"];
+        startAt = "*-*-* 22:45:00";
+        serviceConfig = {
+          ExecStart = "${pkgs.arturs-stupid-alarm-clock}/bin/arturs-stupid-alarm-clock.py";
         };
       };
     })
