@@ -38,3 +38,5 @@ shoutouts to [[https://github.com/arthsmn][arthsmn]] for tidbits of their emacs 
 shoutouts to [[https://github.com/yalter][YaLTeR]] for tidbits of their waybar config that i use
 
 shoutouts to [[https://github.com/notashelf][NotAShelf]] for their wallpapers flake :)
+
+shoutouts to [[https://github.com/gh0stzk][gh0stzk]] for their ncmpcpp configuration
