@@ -11,26 +11,11 @@ in {
     enable = lib.mkEnableOption "emacs";
   };
 
-  config = lib.mkIf cfg.enable (
-    lib.mkMerge [
-      (lib.mkIf config.frozen-pond.misc.wayland {
-        services.emacs = {
-          enable = true;
-          package = inputs.pankomacs.packages.${pkgs.system}.pankomacs;
-          startWithGraphical = true;
-          install = true;
-          defaultEditor = true;
-        };
-      })
-      (lib.mkIf config.frozen-pond.misc.xorg {
-        services.emacs = {
-          enable = true;
-          package = inputs.pankomacs.packages.${pkgs.system}.pankomacs-x11;
-          startWithGraphical = true;
-          install = true;
-          defaultEditor = true;
-        };
-      })
-    ]
-  );
+  config = lib.mkIf cfg.enable {
+    environment.systemPackages = builtins.concatLists [
+      (lib.optional config.frozen-pond.misc.wayland inputs.pankomacs.packages.${pkgs.system}.pankomacs)
+      (lib.optional config.frozen-pond.misc.xorg inputs.pankomacs.packages.${pkgs.system}.pankomacs-x11)
+    ];
+    environment.variables.EDITOR = "emacs";
+  };
 }

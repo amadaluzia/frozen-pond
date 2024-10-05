@@ -423,6 +423,22 @@
         "type": "github"
       }
     },
+    "flatpak": {
+      "locked": {
+        "lastModified": 1711997201,
+        "narHash": "sha256-J71xzQlVYsjagA4AsVwRazhBh2rZrPpKvxTgs6UzL7c=",
+        "owner": "gmodena",
+        "repo": "nix-flatpak",
+        "rev": "b76fa31346db7fc958a9898f3c594696ca71c4fd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gmodena",
+        "ref": "v0.4.1",
+        "repo": "nix-flatpak",
+        "type": "github"
+      }
+    },
     "gen-luarc": {
       "inputs": {
         "flake-parts": "flake-parts_3",
@@ -1005,6 +1021,7 @@
         "disko": "disko",
         "f2k": "f2k",
         "flake-programs-sqlite": "flake-programs-sqlite",
+        "flatpak": "flatpak",
         "gtk": "gtk",
         "niri": "niri",
         "nixpkgs": "nixpkgs_6",

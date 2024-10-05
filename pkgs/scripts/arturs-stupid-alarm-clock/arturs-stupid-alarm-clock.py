@@ -6,7 +6,7 @@ sleep_alarm = Notify(
     default_notification_message="Staying up at any time later would be diabolically catastrophic my hombre. Go to bed right now!",
     default_notification_application_name="Your stupid alarm clock",
     default_notification_icon="icon.gif",
-    default_notification_audio="sound.wav"
+    default_notification_audio="sound.wav",
 )
 
 if __name__ == "__main__":

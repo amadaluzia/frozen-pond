@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   wrappers.ncmpcpp = {
     basePackage = pkgs.ncmpcpp;
     flags = [
