@@ -22,6 +22,7 @@
     qutebrowser.enable = true;
     nyxt.enable = true;
     misc.sudo_prompt = true;
+    mpd.enable = true;
   };
 
   boot.loader = {
