@@ -10,7 +10,7 @@ Welcome to my dotfiles, here you may find some of the most despicable abstractio
 
 Hic sunt dracones.
 
-*** CREDS!!!!!!!!
+** CREDS!!!!!!!!
 
 shoutouts to [[https://codeberg.org/midirhee12][midirhee12]] for the xontribs (and MidOS which i theived the users option from >:^] )
 
