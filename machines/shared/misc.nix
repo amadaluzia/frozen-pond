@@ -11,6 +11,11 @@ in {
     sudo_prompt = mkEnableOption "sudo prompt";
     wayland = mkEnableOption "wayland";
     xorg = mkEnableOption "xorg";
+    alarm = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+      description = "Provide a sleep alarm (I sleep too late)";
+    };
   };
 
   config = lib.mkMerge [
@@ -53,6 +58,18 @@ in {
         pkgs.xclip
         pkgs.vokoscreen-ng
       ];
+    })
+    (mkIf cfg.alarm {
+      systemd = {
+        services.alarm-clock = {
+          description = "artur's stupid sleep alarm";
+          wants = ["graphical-session.target"];
+          startAt = "*-*-* 22:45:00";
+          serviceConfig = {
+            ExecStart = "${pkgs.arturs-stupid-alarm-clock}/bin/arturs-stupid-alarm-clock";
+          };
+        };
+      };
     })
   ];
 }
