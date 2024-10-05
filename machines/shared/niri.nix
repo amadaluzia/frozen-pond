@@ -16,9 +16,13 @@ in {
       waybar.enable = true;
       misc.wayland = true;
     };
-    programs.niri = {
-      enable = true;
-      package = self.packages.${pkgs.system}.niri-wrapped;
+    programs = {
+      niri = {
+        enable = true;
+        package = self.packages.${pkgs.system}.niri-wrapped;
+      };
+      seahorse.enable = true;
     };
+    services.gnome.gnome-keyring.enable = true;
   };
 }

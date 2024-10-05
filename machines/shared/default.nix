@@ -62,5 +62,6 @@
     ./nyxt.nix
     ./users.nix
     ./foot.nix
+    ./mpd.nix
   ];
 }
