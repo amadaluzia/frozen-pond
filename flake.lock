@@ -937,11 +937,11 @@
         "parts": "parts_2"
       },
       "locked": {
-        "lastModified": 1728133408,
-        "narHash": "sha256-rQDvHFtGldqM3rv2QmkGgK3zx0fO7COiYJjjO+w8srM=",
+        "lastModified": 1728164843,
+        "narHash": "sha256-kxKeWgX6XdPdXkqzxGm7WNIM300BD49POcaj4rQ7YHY=",
         "ref": "refs/heads/main",
-        "rev": "aee63f155c4df4161945030a9f579a9b7cdc6216",
-        "revCount": 63,
+        "rev": "f9307bb5f52407098ee2526984c5f53a8f3e7ea8",
+        "revCount": 65,
         "type": "git",
         "url": "https://codeberg.org/amadaluzia/pankomacs.git"
       },
