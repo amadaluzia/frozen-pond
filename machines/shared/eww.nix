@@ -1,5 +1,4 @@
 {
-  username,
   config,
   lib,
   pkgs,

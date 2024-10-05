@@ -1,8 +1,13 @@
 _: {
   projectRootFile = "flake.nix";
-  programs.alejandra.enable = true;
-  programs.stylua.enable = true;
-  programs.shellcheck.enable = true;
-  programs.prettier.enable = true;
-  programs.black.enable = true;
+  programs = {
+    prettier.enable = true;
+    alejandra.enable = true;
+    statix.enable = true;
+    deadnix.enable = true;
+    black.enable = true;
+    stylua.enable = true;
+    shellcheck.enable = true;
+  };
+  settings.formatter.prettier.excludes = ["machines/shared/chromium/bookmarks.html"];
 }

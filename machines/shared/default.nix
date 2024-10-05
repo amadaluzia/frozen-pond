@@ -1,7 +1,4 @@
-{
-  lib,
-  ...
-}: {
+{lib, ...}: {
   options.frozen-pond = {
     desktop = lib.mkOption {
       type = lib.types.nullOr (

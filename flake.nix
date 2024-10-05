@@ -43,9 +43,12 @@
     ];
     forAllSystems = f:
       nixpkgs.lib.genAttrs supportedSystems (
-        system: f {pkgs = import nixpkgs {
-          inherit system overlays;
-        };}
+        system:
+          f {
+            pkgs = import nixpkgs {
+              inherit system overlays;
+            };
+          }
       );
     inherit (import ./machines/lib.nix {inherit inputs overlays;}) mkMachines;
     treefmtEval = forAllSystems ({pkgs}: inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix);

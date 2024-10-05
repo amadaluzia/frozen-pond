@@ -43,7 +43,7 @@ in {
         name = user;
         home = "/home/${user}";
         description = lib.concatMapStrings (
-          x: let
+          _x: let
             nac = lib.stringToCharacters user;
           in
             (lib.toUpper (builtins.head nac)) + lib.concatStrings (builtins.tail nac)

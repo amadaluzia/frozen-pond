@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   wrappers.starship = {
     basePackage = pkgs.starship;
     env.STARSHIP_CONFIG = {

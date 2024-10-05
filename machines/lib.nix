@@ -1,4 +1,7 @@
-{inputs, overlays}: let
+{
+  inputs,
+  overlays,
+}: let
   mkMachine = {
     system,
     hostname,
@@ -53,5 +56,5 @@
       };
     };
 in {
-  mkMachines = machines: builtins.mapAttrs (_: v: mkMachine v) machines;
+  mkMachines = machines: builtins.mapAttrs (_: mkMachine) machines;
 }

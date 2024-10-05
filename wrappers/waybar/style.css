@@ -47,28 +47,28 @@ tooltip label {
 }
 
 #clock {
-    color: @base0D;
+  color: @base0D;
 }
 
 #disk {
-    color: @base08;
+  color: @base08;
 }
 
 #cpu {
-    color: @base0B;
+  color: @base0B;
 }
 
 #memory {
-    color: @base0E;
+  color: @base0E;
 }
 
 #network {
-    color: @base0C;
+  color: @base0C;
 }
 
 #wireplumber,
 #pulseaudio {
-    color: @base0A;
+  color: @base0A;
 }
 
 #workspaces {
