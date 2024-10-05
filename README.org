@@ -4,11 +4,11 @@
 
 #+html: <img src="media/screenshot.png">
 
------
-
 Welcome to my dotfiles, here you may find some of the most despicable abstractions, alongside some scary anti-practices.
 
 Hic sunt dracones.
+
+-----
 
 ** CREDS!!!!!!!!
 
