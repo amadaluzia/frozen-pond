@@ -1,4 +1,4 @@
-{lib, ...}: {
+{lib, inputs, pkgs, ...}: {
   options.frozen-pond = {
     desktop = lib.mkOption {
       type = lib.types.nullOr (
@@ -17,7 +17,7 @@
 
   config = {
     systemd.tmpfiles.rules = let
-      wallpaper = ../../wallpapers/lain.png;
+      wallpaper = "${inputs.walls.packages.${pkgs.system}.oxocarbon}/share/wallpapers/oxocarbon/01.png";
     in ["L+ /tmp/wallpaper 0644 - - - ${wallpaper}"];
     services.openssh = {
       enable = true;
