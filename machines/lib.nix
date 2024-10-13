@@ -56,5 +56,5 @@
       };
     };
 in {
-  mkMachines = machines: builtins.mapAttrs (_: mkMachine) machines;
+  mkMachines = machines: builtins.mapAttrs (n: v: mkMachine (v // {hostname = n;})) machines;
 }

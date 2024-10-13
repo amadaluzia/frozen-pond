@@ -56,7 +56,6 @@
   in {
     nixosConfigurations = mkMachines {
       toothless = {
-        hostname = "toothless";
         user = "artur";
         system = "x86_64-linux";
         extraModules = [inputs.disko.nixosModules.disko];
