@@ -2,10 +2,10 @@
   imports = [
     ./hardware.nix
     ./disks.nix
+    ./niri
   ];
 
   frozen-pond = {
-    desktop = "niri";
     emacs.enable = true;
     wezterm.enable = true;
     fonts.enable = true;
