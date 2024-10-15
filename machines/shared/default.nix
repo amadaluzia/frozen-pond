@@ -58,7 +58,7 @@
     ./niri.nix
     ./eww.nix
     ./aliases.nix
-    ./gtk.nix
+    ./theming
     ./qutebrowser.nix
     ./misc.nix
     ./waybar.nix

@@ -30,6 +30,7 @@ in {
     };
     systemd.user.tmpfiles.rules = [
       "C+ %h/.config/gtk-3.0 - - - - ${gtkTheme}/share/phocus"
+      "C+ %h/.config/Kvantum/kvantum.kvconfig - - - - ${./kvantum.kvconfig}"
     ];
     qt = {
       enable = true;
@@ -42,6 +43,7 @@ in {
         colorVariants = ["pink"];
       })
       pkgs.touhou-cursors
+      pkgs.colloid-kde
     ];
     environment.pathsToLink = ["/share/Kvantum"];
   };
