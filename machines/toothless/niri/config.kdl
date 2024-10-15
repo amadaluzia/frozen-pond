@@ -75,7 +75,6 @@ layout {
     }
 }
 
-spawn-at-startup "niri-dconf-script.sh"
 spawn-at-startup "swaybg" "-i" "/tmp/wallpaper" "-m" "fill"
 spawn-at-startup "waybar"
 spawn-at-startup "mako"
@@ -240,7 +239,7 @@ binds {
 }
 
 cursor {
-  xcursor-theme "Simp1e-Catppuccin-Mocha"
+  xcursor-theme "Sakuya"
   xcursor-size 28
 }
 

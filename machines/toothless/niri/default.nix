@@ -3,11 +3,6 @@
   pkgs,
   ...
 }: let
-  niri-dconf-script = pkgs.writeShellApplication {
-    name = "niri-dconf-script.sh";
-    runtimeInputs = [pkgs.dconf];
-    text = builtins.readFile ./scripts/dconf.sh;
-  };
   wrapper = inputs.wm.lib {
     inherit pkgs;
     modules = [
@@ -18,7 +13,6 @@
             value = ./config.kdl;
             force = true;
           };
-          pathAdd = [niri-dconf-script];
         };
       }
     ];
@@ -35,11 +29,6 @@ in {
       package = wrapper.config.build.toplevel.overrideAttrs {passthru.providedSessions = ["niri"];};
     };
   };
-  frozen-pond = {
-    fuzzel.enable = true;
-    mako.enable = true;
-    waybar.enable = true;
-    misc.wayland = true;
-  };
+  frozen-pond.desktop = "niri";
   services.gnome.gnome-keyring.enable = true;
 }

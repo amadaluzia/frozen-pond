@@ -1,27 +1,48 @@
 {
   config,
-  pkgs,
   lib,
+  self,
+  pkgs,
   ...
 }: let
   inherit (lib) mkIf;
-  gtkTheme = pkgs.myppuccin-gtk;
-  qtTheme = pkgs.myppuccin-kvantum;
+  gtkTheme = self.packages.${pkgs.stdenv.system}.phocus-oxocarbon;
 in {
   config = mkIf (builtins.isString config.frozen-pond.desktop) {
-    environment.systemPackages = [
-      gtkTheme
-      qtTheme
-      pkgs.libsForQt5.qtstyleplugin-kvantum
-      pkgs.simp1e-cursors
-      pkgs.qogir-icon-theme
+    programs.dconf = {
+      enable = true;
+      profiles.user = {
+        databases = [
+          {
+            settings = {
+              "org/gnome/desktop/interface" = {
+                color-scheme = "prefer-dark";
+                icon-theme = "Colloid-pink-dark";
+                gtk-theme = "phocus";
+                cursor-theme = "Sakuya";
+                text-scaling-factor = 1.1;
+              };
+            };
+          }
+        ];
+        enableUserDb = true;
+      };
+    };
+    systemd.user.tmpfiles.rules = [
+      "C+ %h/.config/gtk-3.0 - - - - ${gtkTheme}/share/phocus"
     ];
     qt = {
       enable = true;
-      platformTheme = "qt5ct";
       style = "kvantum";
     };
+    environment.systemPackages = [
+      gtkTheme
+      (pkgs.colloid-icon-theme.override {
+        schemeVariants = ["default"];
+        colorVariants = ["pink"];
+      })
+      pkgs.touhou-cursors
+    ];
     environment.pathsToLink = ["/share/Kvantum"];
-    programs.dconf.enable = true;
   };
 }
